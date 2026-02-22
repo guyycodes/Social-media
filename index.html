@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morgan's Content System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FC4C02;
+      --dark: #0a0a0a;
+      --card: #141414;
+      --border: #222;
+      --text: #f0f0f0;
+      --muted: #666;
+      --linkedin: #0A66C2;
+      --tiktok: #ff0050;
+      --instagram: #C13584;
+      --x-platform: #1DA1F2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 10vw, 100px);
+      letter-spacing: 6px;
+      color: var(--orange);
+      line-height: 0.9;
+    }
+
+    .header p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .intro .positioning {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+      border-left: 3px solid var(--orange);
+      padding-left: 16px;
+      text-align: left;
+      margin: 24px auto;
+      max-width: 520px;
+    }
+
+    /* NARRATIVE CARD */
+    .narrative-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .narrative-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .narrative-card .arc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .arc-node {
+      text-align: center;
+      padding: 16px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .arc-node::after {
+      content: '→';
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .arc-node:last-child::after {
+      display: none;
+    }
+
+    .arc-node .arc-age {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: var(--orange);
+    }
+
+    .arc-node .arc-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* PROCESS CARD */
+    .process-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .process-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .process-step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--border);
+      line-height: 1;
+    }
+
+    .process-step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* WEEK SECTIONS */
+    .weeks-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .week {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+    }
+
+    .week-header:hover {
+      background: rgba(252, 76, 2, 0.05);
+    }
+
+    .week-arrow {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .week-arrow svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--orange);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .week.expanded .week-arrow {
+      transform: rotate(90deg);
+    }
+
+    .week-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--orange);
+      line-height: 1;
+      min-width: 60px;
+    }
+
+    .week-info {
+      flex: 1;
+    }
+
+    .week-theme {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .week-hook {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .week-platforms {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .platform-badge {
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .badge-linkedin {
+      background: rgba(10, 102, 194, 0.2);
+      color: #5b9bd5;
+      border: 1px solid rgba(10, 102, 194, 0.3);
+    }
+
+    .badge-video {
+      background: rgba(252, 76, 2, 0.15);
+      color: #fc8c50;
+      border: 1px solid rgba(252, 76, 2, 0.3);
+    }
+
+    .badge-tiktok {
+      background: rgba(255, 0, 80, 0.15);
+      color: #ff6090;
+      border: 1px solid rgba(255, 0, 80, 0.3);
+    }
+
+    .badge-instagram {
+      background: rgba(193, 53, 132, 0.15);
+      color: #d070a8;
+      border: 1px solid rgba(193, 53, 132, 0.3);
+    }
+
+    .badge-x {
+      background: rgba(29, 161, 242, 0.15);
+      color: #6ab8e8;
+      border: 1px solid rgba(29, 161, 242, 0.3);
+    }
+
+    /* WEEK CONTENT (expandable) */
+    .week-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .week.expanded .week-content {
+      max-height: 5000px;
+    }
+
+    .week-inner {
+      padding: 0 28px 28px 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .content-piece {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content-piece:last-child {
+      border-bottom: none;
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .content-day {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .content-type {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .content-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .content-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    /* AI PROMPT BOX */
+    .ai-prompt {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+
+    .ai-prompt-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--orange);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .ai-prompt-label svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .ai-prompt-text {
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 12px;
+      color: #aaa;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 12px;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* TIMING BADGE */
+    .timing {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .timing svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--muted);
+    }
+
+    /* COOL DOWN TOPICS */
+    .topics-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .topics-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .topics-card .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .topic-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .topic-cat {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .topic-cat h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .topic-cat .cat-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .topic-cat .cat-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .topic-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .topic-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      line-height: 1.5;
+    }
+
+    .topic-list li:last-child {
+      border-bottom: none;
+    }
+
+    .topic-list li::before {
+      content: '▸ ';
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .topic-list li span {
+      color: var(--muted);
+      font-size: 11px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* EXPANSION CARD */
+    .expansion-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 900px;
+      margin: 48px auto;
+    }
+
+    .expansion-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .expansion-card .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .platform-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .platform-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .platform-card .roi-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .roi-high { color: #4ade80; }
+    .roi-medium { color: #facc15; }
+    .roi-low { color: #f87171; }
+
+    .platform-card ul {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .platform-card ul li {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .platform-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .platform-card ul li::before {
+      content: '→ ';
+      color: var(--orange);
+    }
+
+    /* FUNNEL SECTION */
+    .funnel-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .funnel-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .funnel-card .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .funnel-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .funnel-node {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .funnel-node .fn-label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .funnel-node .fn-detail {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .funnel-arrow {
+      color: var(--orange);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .funnel-notes {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .funnel-notes li {
+      padding: 4px 0;
+    }
+
+    /* CYCLE INFO */
+    .cycle-info {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cycle-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .cycle-info p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .week-header {
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+      
+      .week-number {
+        font-size: 28px;
+        min-width: 50px;
+      }
+      
+      .week-theme {
+        font-size: 16px;
+      }
+      
+      .week-platforms {
+        width: 100%;
+        margin-top: 12px;
+      }
+      
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .arc-node::after {
+        display: none;
+      }
+
+      .narrative-card .arc {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .funnel-flow {
+        flex-direction: column;
+      }
+
+      .funnel-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>6-WEEK CONTENT CYCLE</h1>
+    <p>Business Owner → Engineer → Builder. Repeat. Iterate. Grow.</p>
+  </div>
+
+  <div class="intro">
+    <p>You're not someone who "learned to code." You ran a business for 7 years, went back for CS at 35, and built a modular widget platform that serves restaurants, contractors, delivery businesses, auto services, home services, and more. You have instincts from both sides. That's the story.</p>
+    <div class="positioning">
+      "I'm not learning how to build a company. I already did that. I chose to become an engineer so I could build the next one myself. And I did."
+    </div>
+    <p>Everything happens during or right after your 10-mile morning run. Cool down walk → voice memo → AI → post. That's the system.</p>
+  </div>
+
+  <!-- THE NARRATIVE ARC -->
+  <div class="narrative-card">
+    <h2>Your Story Arc — The Content Backbone</h2>
+    <div class="arc">
+      <div class="arc-node">
+        <div class="arc-age">EARLY 20s</div>
+        <div class="arc-label">Homeless 16 months.<br>Survived. Started running.</div>
+      </div>
+      <div class="arc-node">
+        <div class="arc-age">20s–30s</div>
+        <div class="arc-label">Built a business.<br>Grew it for 7 years.</div>
+      </div>
+      <div class="arc-node">
+        <div class="arc-age">THE BREAK</div>
+        <div class="arc-label">Lost everything.<br>Dad died. Started over.</div>
+      </div>
+      <div class="arc-node">
+        <div class="arc-age">AGE 35</div>
+        <div class="arc-label">Returned to college.<br>CS degree. Chose engineering.</div>
+      </div>
+      <div class="arc-node">
+        <div class="arc-age">NOW — 39</div>
+        <div class="arc-label">10mi/day. Widgetfied is live.<br>Planet Fitness. Shipping.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE PROCESS -->
+  <div class="process-card">
+    <h2>The AI-Assisted Process</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-title">During Your Run (4:45 AM)</div>
+        <div class="process-step-desc">10 miles minimum. Think about the week's theme. Let your brain solve problems at mile 7.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-title">Cool Down Walk (5 min)</div>
+        <div class="process-step-desc">Still moving, heart rate coming down. Record a 60-90 second voice memo or video. Raw, breathing, real.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-title">Feed to AI (10 min)</div>
+        <div class="process-step-desc">Use the week's AI prompt. Paste your transcript. You're directing the AI with your depth, not asking it to think for you.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-title">Post & Engage</div>
+        <div class="process-step-desc">Post to LinkedIn (and video platforms in weeks 3-6). Reply to comments for 15 min during PF breaks.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOL DOWN WALK TOPICS -->
+  <div class="topics-card">
+    <h2>Cool Down Walk Video Topics</h2>
+    <div class="subtitle">You just ran 10 miles. You're still walking. Heart rate coming down. Pick a topic, hit record, talk for 60-90 seconds. No script. These are starting points, not teleprompters.</div>
+
+    <div class="topic-categories">
+
+      <div class="topic-cat">
+        <div class="cat-icon">🏃</div>
+        <h3>The Run Itself</h3>
+        <div class="cat-desc">What happened on today's run. What your brain did at mile 7. The run is the content.</div>
+        <ul class="topic-list">
+          <li>What I solved in my head before 6 AM today<span>A bug, a business decision, a Widgetfied feature — your brain works differently at mile 8</span></li>
+          <li>The difference between mile 2 and mile 9<span>Mile 2 you're still waking up. Mile 9 you've already made 3 decisions for the day.</span></li>
+          <li>Why I run 10 miles minimum — not 3, not 5<span>The cognitive payoff doesn't kick in at 5K. It kicks in when your body stops complaining and your brain takes over.</span></li>
+          <li>What a double day looks like (10 in the AM, 10 in the PM)<span>Why some days demand it. What's different about the second run.</span></li>
+          <li>Running in the dark at 4:45 AM — what that actually feels like<span>Nobody's out. No distractions. Just you and whatever problem you brought with you.</span></li>
+          <li>The worst run this week and why I still went<span>Not every run is good. The point is the streak, not the split.</span></li>
+        </ul>
+      </div>
+
+      <div class="topic-cat">
+        <div class="cat-icon">💻</div>
+        <h3>Software Engineering</h3>
+        <div class="cat-desc">The hardest thing you've ever done — and you were homeless for 16 months. Talk about what makes it that hard.</div>
+        <ul class="topic-list">
+          <li>Why software engineering is harder than being homeless<span>Homelessness is survival. Software is sustained precision over months. Different kind of hard.</span></li>
+          <li>What I worked on in Widgetfied last night from 7-10 PM<span>Specific. A feature, a refactor, a bug. What the 3-hour block produced.</span></li>
+          <li>The moment a piece of code finally clicks<span>You've been staring at it for days. Then on the run it just... resolves.</span></li>
+          <li>Why I chose to become an engineer instead of hiring one<span>7 years running a business taught me what happens when you can't evaluate your own tech.</span></li>
+          <li>What my CS degree actually taught me vs. what building Widgetfied taught me<span>School gives you the language. Shipping gives you the scars.</span></li>
+          <li>Running and debugging are the same discipline<span>Both require you to stay calm when everything says quit.</span></li>
+        </ul>
+      </div>
+
+      <div class="topic-cat">
+        <div class="cat-icon">📦</div>
+        <h3>Widgetfied — The Product</h3>
+        <div class="cat-desc">You built this. It's live. Talk about it like you own it — because you do.</div>
+        <ul class="topic-list">
+          <li>What Widgetfied actually does in plain English<span>Modular widgets for service businesses — ordering, routing, booking, payments, AI estimates, customer portal. No platform lock-in. Say it like you're explaining it at PF.</span></li>
+          <li>A feature I shipped this week and why it matters<span>Tie it to a real customer problem. You've lived the problem — explain the fix.</span></li>
+          <li>Why Widgetfied starts free and Growth is $29/month<span>Free tier to get in the door. The business owner in you set the pricing. The engineer in you built enterprise quality.</span></li>
+          <li>The Genius Router — delivery route optimization without the jargon<span>VRPTW sounds intimidating. Explain it as: "your delivery routes, but smart." One of 6 widgets.</span></li>
+          <li>The Cart & Menu widget — and why restaurants need it<span>AI dietary recommendations, online ordering, spreadsheet POS. One widget replaces 3 tools.</span></li>
+          <li>A customer problem I heard at PF that Widgetfied already solves<span>Don't pitch. Just connect the dots out loud.</span></li>
+          <li>What's next for Widgetfied — the roadmap spoken raw<span>Where you're taking it. What users are asking for. What you're shipping next.</span></li>
+        </ul>
+      </div>
+
+      <div class="topic-cat">
+        <div class="cat-icon">🏋️</div>
+        <h3>Planet Fitness Floor</h3>
+        <div class="cat-desc">You're surrounded by your customers every day. You were one of them. Talk about what you see and what you recognize.</div>
+        <ul class="topic-list">
+          <li>A conversation I had today with a small business owner at PF<span>Anonymized. What they said, what you recognized from your own 7 years.</span></li>
+          <li>Why I work at Planet Fitness when I have a CS degree and a live SaaS<span>You chose this. It's field intelligence, not a fallback.</span></li>
+          <li>The types of business owners who come through PF<span>Restaurant owners, detailers, HVAC techs, personal trainers, contractors, plumbers, landscapers, cleaning services, electricians, delivery operators — you see the entire ecosystem Widgetfied serves.</span></li>
+          <li>What I notice about small business owners that they don't notice about themselves<span>The patterns. The wasted time they've normalized. The problems they think are just "part of it."</span></li>
+          <li>The difference between how I see PF members now vs. before I built Widgetfied<span>Before: gym members. Now: people whose problems you solved in code.</span></li>
+        </ul>
+      </div>
+
+      <div class="topic-cat">
+        <div class="cat-icon">🔥</div>
+        <h3>The Story — Your Arc</h3>
+        <div class="cat-desc">Homeless → business → lost everything → CS at 35 → shipped Widgetfied. Pieces of this, not all at once.</div>
+        <ul class="topic-list">
+          <li>What being homeless at 20 taught me about showing up<span>16 months. No safety net. Running kept you sane. That discipline never left.</span></li>
+          <li>What 7 years of running a business taught me that a CS degree didn't<span>Customers, cash flow, failure tolerance. The business came first — the engineering came after.</span></li>
+          <li>Starting over at 35 — what that decision actually felt like<span>Not inspirational. Terrifying. But you'd already survived worse.</span></li>
+          <li>How I got healthy after losing everything<span>The running ramped up. The clarity came back. You went from surviving to choosing.</span></li>
+          <li>My dad died and I finished my degree anyway<span>Not "in spite of." Just: it happened, and I kept going. That's it.</span></li>
+          <li>Why I don't call this a comeback<span>You never stopped. You just weren't visible. There's a difference.</span></li>
+        </ul>
+      </div>
+
+      <div class="topic-cat">
+        <div class="cat-icon">🎯</div>
+        <h3>Discipline & Mindset</h3>
+        <div class="cat-desc">Not motivational fluff. Just how you think about the demands of doing all of this at once.</div>
+        <ul class="topic-list">
+          <li>Why I don't call this hustle — it's just the schedule<span>Hustle implies chaos. Your day is structured. 4:30 AM to 10 PM, every time.</span></li>
+          <li>What discipline actually looks like vs. what social media thinks it looks like<span>It's not cold plunges and journals. It's running 10 miles when you slept 5 hours.</span></li>
+          <li>The one thing that would fall apart if I stopped running<span>Everything. The code quality. The patience at PF. The focus at night. All of it.</span></li>
+          <li>How I think about energy management across a 17.5-hour day<span>Run → PF → Code. Each block has a different energy demand. You've figured out the sequence.</span></li>
+          <li>What I'd tell someone who says "I don't have time"<span>You were homeless, ran a business, went back to school at 35. Time isn't the problem.</span></li>
+          <li>Rest day — what I actually do on day 7<span>The one day you don't run. What happens. How it feels. Why it matters.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEEKS -->
+  <div class="weeks-container">
+
+    <!-- WEEK 1 -->
+    <div class="week" data-week="1">
+      <div class="week-header" onclick="toggleWeek(1)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 1</div>
+        <div class="week-info">
+          <div class="week-theme">THE CONTRADICTION</div>
+          <div class="week-hook">Business owner who became an engineer. 10mi/day. Codes SaaS. Works at Planet Fitness. None of it adds up — until it does.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn Only</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday Post</span>
+              <span class="content-type">· Strava Screenshot + Hook</span>
+            </div>
+            <div class="content-title">The Opening Move</div>
+            <div class="content-desc">Post your Strava from the morning's 10-miler. This isn't about the run — it's about the setup. Let people see 10 miles logged before 6:30 AM, then slowly reveal who you actually are.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I ran 10 miles this morning. Done by 6:30 AM. I'm 39. I ran a business for 7 years, went back to college for computer science at 35, and I built Widgetfied — modular widgets that optimize service business operations. Ordering, routing, booking, payments, AI estimates, customer portals. No platform lock-in. It's live. I also work at Planet Fitness.
+
+Take this voice memo transcript and turn it into a LinkedIn post that introduces me as someone who doesn't fit the typical founder mold. I'm not a "tech bro who learned business" — I'm a business owner who chose to become an engineer. Lead with the 10-mile run, then reveal the layers. Keep it under 150 words. Make it feel like I'm talking to someone at the gym, not giving a pitch. End with a question that invites people to share their own unexpected path.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Cool down walk voice memo | Post: Before your PF shift (7:30 AM)
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Wednesday Post</span>
+              <span class="content-type">· The Setup Story</span>
+            </div>
+            <div class="content-title">Why Planet Fitness?</div>
+            <div class="content-desc">You ran a business. You know what small business owners deal with. You chose to be surrounded by them every day. This isn't a fallback — it's field intelligence from someone who's been on their side of the counter.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I want to write a LinkedIn post about why I work at Planet Fitness while running Widgetfied. Here's the real answer: I ran my own business for 7 years. I know exactly what these small business owners go through — the scheduling chaos, the wasted drive time, the "I'll figure it out later" that never gets figured out. I'm not learning about my customers at PF. I already was one.
+
+I'm surrounded every day by restaurant owners, mobile detailers, HVAC techs, contractors, plumbers, personal trainers, landscapers, cleaning services, electricians — every kind of service business. Their problems are the ones I already lived. Wasted routes, no online ordering, manual scheduling, chasing payments. Widgetfied already solves all of it — modular widgets they plug in and use. No platform lock-in.
+
+Take this voice memo and write a post that frames this as intentional, not a fallback. I'm not "working my way up" — I'm a business owner who became an engineer and chose to stay close to the people I built Widgetfied for. Keep it under 150 words. Tone: confident but not arrogant.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During PF break | Post: Evening (6-8 PM)
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday Post</span>
+              <span class="content-type">· The Flex (Soft)</span>
+            </div>
+            <div class="content-title">What I Actually Built</div>
+            <div class="content-desc">Complete the picture. You had the business instincts first, then you went and got the engineering skills to build the solution yourself. Not a weekend project — 6 modular widgets covering ordering, delivery routing (VRPTW), booking, payments, AI estimates, and customer portals. Embeddable on any site with 2 lines of code.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I need a LinkedIn post about Widgetfied. Here's the backstory: I ran a business for 7 years and lived the exact problems my customers have — no online ordering, wasted delivery routes, manual scheduling, chasing payments, no way for customers to track their jobs. So I went back to school at 35, got my CS degree, and built the solution myself.
+
+Widgetfied is a modular widget system for service businesses. 6 widgets: Cart & Menu (online ordering + AI dietary assistant + spreadsheet POS), Genius Router (delivery route optimization — VRPTW), Booking (with Google Calendar sync), Payments (Stripe + Venmo), AI Estimates (photo-based), and a Customer Portal. Embed any of them on any website with 2 lines of code. No platform lock-in — use what you need, skip what you don't. Free to start, $29/month for Growth.
+
+I didn't hire someone to build this. I became the engineer. That's the difference.
+
+Don't make this sound like a pitch. Make it sound like I'm sharing what I work on from 7-10 PM after my shift at Planet Fitness and my morning 10-miler. Like an afterthought that happens to be technically complex. Keep it under 150 words. Focus on the "modular" angle — these aren't locked into one platform. Pick the widgets you need.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: After run | Post: Before noon
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week" data-week="2">
+      <div class="week-header" onclick="toggleWeek(2)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 2</div>
+        <div class="week-info">
+          <div class="week-theme">THE DISCIPLINE</div>
+          <div class="week-hook">The schedule. The mileage. Why running isn't optional when you're building software — it's required.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn Only</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday Post</span>
+              <span class="content-type">· The Timeline</span>
+            </div>
+            <div class="content-title">4:30 AM Club — The Real Schedule</div>
+            <div class="content-desc">Not motivational fluff. Just the facts. People keep asking how you fit it all in. This is the answer. 10 miles minimum, sometimes 10 twice a day. 6 days a week.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">People keep asking how I fit everything in. Here it is:
+
+4:30 AM — Up.
+4:45 AM — Out the door running.
+10 miles minimum. Sometimes I do 10 twice in one day.
+Back by 6:30. Shower.
+8:00 AM — At Planet Fitness for my shift.
+Work the floor.
+Home. Dinner.
+7:00-10:00 PM — Code on Widgetfied.
+6 days a week.
+
+Take this and turn it into a LinkedIn post. Not motivational fluff. Factual. "Here's when I do things" not "here's why you should." I'm a business owner who became a software engineer at 35. Software engineering is the hardest thing I've ever done — and I was homeless for 16 months in my early 20s. Running and discipline aren't self-help. They're required for the cognitive demands of building real software. Keep it under 150 words. List format. End with: "It's not hustle. It's just the schedule."</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Cool down walk voice memo | Post: 7-8 AM
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Wednesday Post</span>
+              <span class="content-type">· The Real Talk</span>
+            </div>
+            <div class="content-title">Software Engineering Is the Hardest Thing I've Ever Done</div>
+            <div class="content-desc">You were homeless for 16 months. You rebuilt from zero after losing everything. And software engineering is still the hardest thing. That's a statement that makes people stop scrolling. Explain why running is essential to surviving its demands.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">Software engineering is the hardest thing I've ever done. And I was homeless for 16 months in my early 20s. I've rebuilt from zero more than once. But the sustained cognitive demand of building production software — real algorithms, real architecture, real users depending on your code — that requires a level of discipline I didn't even know existed.
+
+That's why I run 10 miles minimum every day. Sometimes twice. It's not a hobby. It's not a flex. It's what keeps my brain sharp enough to touch code at night after a full shift at Planet Fitness.
+
+Take this voice memo and write a LinkedIn post about why physical discipline isn't optional for software engineers. Not a "5 tips for productivity" post. This is about survival. About what it actually takes to build real things when you're doing it alone. Keep it under 150 words. Raw tone, not polished.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Right after the run (still breathing hard) | Post: Evening
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday Post</span>
+              <span class="content-type">· The Parallels</span>
+            </div>
+            <div class="content-title">What Running Taught Me About Code</div>
+            <div class="content-desc">3 parallels between distance running and building software. This comes from actually doing both at an extreme level — not a metaphor you read somewhere.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I've been running 10+ miles a day and shipping production software for years. Here's what I know: running a SaaS and training for distance are the same discipline.
+
+Everyone wants the finish line photo. Nobody wants Tuesday's 10-miler in the rain at 4:45 AM. Same with software — everyone wants the launch tweet. Nobody wants to debug the same API issue for 3 hours on a Wednesday night after working a full shift.
+
+I ran a business for 7 years before I became an engineer. Both taught me the same thing: the work that matters is the work nobody sees.
+
+Take this voice memo and expand it into a LinkedIn post that draws 3 specific parallels between distance running and building software. Make it feel like a realization I had at mile 8 this morning, not a prepared essay. I'm not discovering this — I'm confirming what I already knew from running a business. Keep it under 180 words.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During cool down walk (ideas from mile 7-8) | Post: After run
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week" data-week="3">
+      <div class="week-header" onclick="toggleWeek(3)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 3</div>
+        <div class="week-info">
+          <div class="week-theme">THE FORGE</div>
+          <div class="week-hook">The full story: homeless → built a business → lost everything → finished CS at 35 → built and shipped Widgetfied. First cool down walk videos.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn</span>
+          <span class="platform-badge badge-video">+ Cool Down Walk Video</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday — LinkedIn</span>
+              <span class="content-type">· The Origin</span>
+            </div>
+            <div class="content-title">I Was Homeless at 20. I'm Building a SaaS at 39.</div>
+            <div class="content-desc">The full arc. Not a sob story — a statement of fact. You were homeless for 16 months, built a business from nothing, grew it for 7 years, lost everything, your dad died, and you still finished your CS degree. Now you run 10 miles a day and build production software at night. Let the facts speak.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">Here's my timeline:
+
+Early 20s: Homeless for 16 months. No safety net. Started running to stay sane.
+Mid 20s-early 30s: Built a business from nothing. Grew it for 7 years.
+Then I lost everything. Bad relationship with someone who took advantage of me and drained the energy I'd built. I walked away with nothing.
+My dad died during this period.
+At 35: Went back to college for computer science. Finished my degree.
+Now at 39: I run 10 miles minimum every day. I work at Planet Fitness. I ship features and grow Widgetfied from 7-10 PM. 6 days a week.
+
+Take this and write a LinkedIn post that shares this as a factual timeline — not a motivational speech. No "and you can too" energy. Just: here's what happened, here's where I am. The point isn't inspiration — it's context. People should understand why I build the way I build. Keep under 200 words. End with: "I'm not starting over. I'm starting from everything I've learned."</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Deep thought during long run | Post: Morning
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Tuesday — Cool Down Walk Video #1</span>
+              <span class="content-type">· First Video</span>
+            </div>
+            <div class="content-title">First Video: Still Walking, Heart Rate Coming Down</div>
+            <div class="content-desc">Cool down walk after the run. Still moving. Breathing visible. 60-90 seconds. Just introduce yourself out loud. The format IS the brand — someone who's still going, never fully stopped.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I just recorded a 90-second video during my cool down walk after a 10-mile run. I'm still moving, heart rate coming down, you can hear my breathing. I introduced myself: 39, was homeless at 20, ran a business for 7 years, went back for CS at 35, built and shipped a SaaS called Widgetfied, work at Planet Fitness. First time posting video.
+
+Take this transcript and give me 3 caption options for LinkedIn video that sound natural — not clickbait. Each should be 1-2 sentences max. Make the first line a hook that stops the scroll without being fake. The vibe is: this guy is literally still walking from his run and he's telling you his story.
+
+Also give me 5 hashtag suggestions: running + coding + building at 39 + founder + comeback.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During cool down walk immediately after run | Post: Evening (6-9 PM)
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Thursday — Cool Down Walk Video #2</span>
+              <span class="content-type">· The Depth</span>
+            </div>
+            <div class="content-title">Why I Chose Engineering After Running a Business</div>
+            <div class="content-desc">The "chose" is the key word. You didn't fall into CS. You had a business and decided to go get the engineering skills yourself. Talk about that decision during the cool down walk.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I was on my cool down walk today and I was thinking about why I chose to go back for CS at 35 instead of just hiring developers or using no-code tools. The answer: I'd already run a business for 7 years. I saw what happens when founders can't evaluate their own tech. I saw what happens when you depend on someone else to build your vision. I chose to become the engineer so I'd never need permission to build again.
+
+Take this and turn it into 3 caption options for a cool down walk video. Keep it conversational. No corporate speak. These captions should make someone want to watch a breathing-hard guy walking and talking for 60 seconds about why he went back to school at 35. One line hook, then 1-2 sentence context.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Cool down walk post-run | Post: Same evening
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday — LinkedIn</span>
+              <span class="content-type">· The Why Now</span>
+            </div>
+            <div class="content-title">When I Decided to Stop Being Quiet</div>
+            <div class="content-desc">Why you're starting to post after years of building in silence. You got healthier. You got stronger. You have 2700 LinkedIn connections you never talk to. Time to show up.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I've been doing this — running 10+ miles, coding, building — for years with zero social media presence. No Instagram. No TikTok. Just LinkedIn with 2700 connections I never talked to. I built a business for 7 years in silence. I went back for CS at 35 in silence. I built and shipped Widgetfied in silence.
+
+I got healthier after leaving a bad situation. I run 10 miles a day now, sometimes twice. I'm in the best shape of my life and I shipped the best software of my life. And I realized I've been doing all of this where nobody can see it. Not because it's more pure. Because I was still healing.
+
+I'm done being quiet.
+
+Take this and write a LinkedIn post about starting to share after years of building in silence. Not "I'm back" — I was never here. More like "I'm finally showing up." Keep it under 150 words. Honest, not performative.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Deep thought during long run | Post: Morning
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week" data-week="4">
+      <div class="week-header" onclick="toggleWeek(4)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 4</div>
+        <div class="week-info">
+          <div class="week-theme">THE BUILD</div>
+          <div class="week-hook">Show Widgetfied through the lens of a business owner who became the engineer. You had the problem first. Then you built the solution.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn</span>
+          <span class="platform-badge badge-video">+ Cool Down Walk</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday — LinkedIn</span>
+              <span class="content-type">· The Problem You Lived</span>
+            </div>
+            <div class="content-title">I Was The Customer Before I Was The Builder</div>
+            <div class="content-desc">You didn't research your market. You lived it. 7 years of running a business and dealing with the exact problems Widgetfied solves. Now you see the same problems at PF every day.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">There's a guy at Planet Fitness who runs a mobile detailing business. Yesterday he told me he drove 45 minutes to a job that got cancelled en route. Lost 90 minutes plus gas. Happens weekly. Another member runs a small restaurant — still taking orders by phone, losing tickets, no online menu. A contractor told me he spends 2 hours a week writing estimates by hand.
+
+I didn't just feel bad for them. I recognized every one of those problems. I ran a business for 7 years. I was that guy. I lived those exact problems — bad routes, no online ordering, manual scheduling, chasing payments. That's why I went back for CS at 35. Not to "learn to code." To build the solution I needed when I was them.
+
+Widgetfied is a modular widget system — ordering, routing, booking, payments, AI estimates, customer portals. Pick what you need, embed it on your site with 2 lines of code. Free to start. I built it because I was the customer first.
+
+Take this and write a LinkedIn post that tells this story through one of these people. I'm not observing from the outside — I lived this. Make that distinction clear. Keep under 180 words. End with what specific Widgetfied widget would have solved their problem.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Voice memo at PF on break | Post: Evening
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Wednesday — LinkedIn + Cool Down Walk Video</span>
+              <span class="content-type">· Screen Recording + Walk</span>
+            </div>
+            <div class="content-title">30-Second Demo</div>
+            <div class="content-desc">Screen record Widgetfied. Show one widget — the Cart & Menu, the Genius Router, the Booking widget, the AI Estimate tool, whatever you're featuring that week. Then record a cool down walk video explaining what they just saw through the lens of: "I built this because I needed it when I ran my own business."</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I just recorded a 30-second screen share of one of Widgetfied's widgets — [WHICH ONE: Cart & Menu with online ordering, Genius Router optimizing delivery routes, Booking widget with calendar sync, Payment widget with Stripe/Venmo, AI Estimates from photos, or Customer Portal] — and a 60-second cool down walk video where I explain what it does in plain language.
+
+Widgetfied is a modular widget system. 6 widgets, each solving a specific problem for service businesses. Restaurants, contractors, delivery companies, auto services, home services, cleaning, landscaping — any service business. They embed on any website with 2 lines of code. No platform lock-in.
+
+Give me 3 caption options:
+1. For LinkedIn (professional but real — mention I built this myself after running a business for 7 years and going back for CS at 35)
+2. For a future TikTok (short, punchy, "I had this problem for 7 years so I became an engineer and built the fix" energy)
+3. For a future Instagram (slightly more polished but still raw)
+
+Each should have a one-line hook. Frame it as: business owner who became an engineer to solve his own problems. Mention the specific widget being demoed. Not "I learned to code" — "I chose to become the engineer."</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Screen record after run, cool down walk for video | Post: Lunch break
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday — LinkedIn</span>
+              <span class="content-type">· The Stack (Business + Engineering)</span>
+            </div>
+            <div class="content-title">How I Actually Built This — Decisions, Not Just Tools</div>
+            <div class="content-desc">Share your tech stack, but frame every decision through having both business experience AND engineering craft. You chose these tools knowing what matters from the business side.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">Widgetfied is a modular widget platform — 6 widgets (ordering, routing, booking, payments, AI estimates, customer portal) that embed on any website with 2 lines of code. It runs on [YOUR STACK — Next.js, Clerk, Stripe Connect, Google Sheets integration, MobX, etc.]. I chose every piece of this stack for specific reasons — and those reasons come from running a business for 7 years, not just engineering best practices.
+
+Example: I chose embeddable widgets over a full platform because I know service business owners don't want to migrate. They want to add tools to what they already have. I chose Google Sheets integration because that's what small business owners actually use — not dashboards they'll never check. I chose Stripe Connect so money goes directly to them, not through me.
+
+Most engineers choose tools based on what they know. I chose tools based on what my customers need. There's a difference when you've been the customer for 7 years.
+
+Take this and write a LinkedIn post that shares the build stack but focuses on the decisions. Frame each choice as coming from someone who has both business instincts and engineering skill. Mention the modular/no-lock-in architecture as a deliberate business decision. Keep it under 200 words. Numbered list format.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During 10-miler (think through decisions) | Post: Evening
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="week" data-week="5">
+      <div class="week-header" onclick="toggleWeek(5)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 5</div>
+        <div class="week-info">
+          <div class="week-theme">THE PEOPLE</div>
+          <div class="week-hook">The humans you serve. You know them because you were them. Day-in-the-life content. Cool down walk series.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn</span>
+          <span class="platform-badge badge-video">+ Cool Down Walk</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday — LinkedIn</span>
+              <span class="content-type">· Who This Is For</span>
+            </div>
+            <div class="content-title">Who Widgetfied Is Actually For</div>
+            <div class="content-desc">Paint a picture of your ideal customer — but you're not guessing at demographics. You know these people because you were one, and now you stand next to them at PF every day.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">Widgetfied isn't for everyone. It's for the restaurant owner still taking orders by phone who needs a Cart & Menu widget with AI dietary recommendations and online ordering. It's for the mobile detailer with 3 vans who needs the Genius Router to stop wasting gas on bad routes. It's for the HVAC tech who loses an hour a day because he has no online booking. It's for the contractor writing estimates by hand who could use AI photo-based estimates. It's for the cleaning service chasing payments that could be automated through Stripe and Venmo. It's for any service business that can't afford Salesforce but needs real tools — modular widgets they plug into their existing website with 2 lines of code. No platform lock-in.
+
+I know these people because I was one. I ran a service business for 7 years. I lived the chaos. And now I stand next to these same people at Planet Fitness every single day — restaurants, contractors, delivery businesses, auto services, home services, landscapers, electricians, health and wellness, all of them.
+
+Take this and write a LinkedIn post that describes exactly who Widgetfied is for — without saying "ideal customer profile." I don't research my customers. I was my customer. Name specific widgets for specific problems. Make that distinction clear. Keep under 180 words.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During PF shift, observe | Post: After shift
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Wednesday — Cool Down Walk Video</span>
+              <span class="content-type">· Day in the Life</span>
+            </div>
+            <div class="content-title">4:30 AM to 10 PM — The Full Day</div>
+            <div class="content-desc">Quick clips throughout the day: 4:30 alarm → running in the dark → cool down walk → PF shift → dinner → working on Widgetfied. String together or post the cool down walk portion solo.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I want to create a "day in the life" video showing: 4:30 AM alarm, running 10 miles in the dark, cool down walk (where I talk to camera with heart rate coming down), working at Planet Fitness, shipping features on Widgetfied at night.
+
+I'm 39. I was homeless at 20. Built a business for 7 years. Went back for CS at 35. This is what "after the rebuild" looks like.
+
+Give me a caption that doesn't try too hard. Something like "This is just Tuesday" energy. Also give me 3 title card suggestions for text overlays in the video. And a hook line for the first 2 seconds that makes people stay. Don't make it about hustle culture — make it about someone who chose this life deliberately after losing everything and building back.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Capture clips all day | Post: Next morning
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday — LinkedIn</span>
+              <span class="content-type">· The Conversation</span>
+            </div>
+            <div class="content-title">What Someone Actually Said to Me at PF</div>
+            <div class="content-desc">Quote a real conversation (anonymized) that shows the pain you recognize. You don't just hear it — you lived it.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">A guy at Planet Fitness said something to me today: "[QUOTE ABOUT HIS BUSINESS PROBLEM — could be about ordering, scheduling, routing, payments, estimates, customer tracking, anything operational]." I didn't pitch him. I just listened. Because I remember saying the exact same thing when I ran my business.
+
+He doesn't know I'm a software engineer. He doesn't know I built a modular widget system that solves his exact problem — whether it's the Cart & Menu widget, the Genius Router, the Booking widget, the Payment widget, the AI Estimate tool, or the Customer Portal. He just knows me as the team lead who runs 10 miles before his shift.
+
+Take this conversation and write a LinkedIn post that starts with his quote. Then reveal the layers — I'm not observing his problem, I'm remembering mine. Name the specific Widgetfied widget that would solve what he described. Keep under 150 words. No hard pitch — just the connection between who I was and what I shipped.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Voice memo right after conversation | Post: Same day
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="week" data-week="6">
+      <div class="week-header" onclick="toggleWeek(6)">
+        <div class="week-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div class="week-number">WEEK 6</div>
+        <div class="week-info">
+          <div class="week-theme">THE LOOP + EXPAND</div>
+          <div class="week-hook">Recap, lessons, numbers. Then restart the cycle with fresh stories — and expand to new platforms.</div>
+        </div>
+        <div class="week-platforms">
+          <span class="platform-badge badge-linkedin">LinkedIn</span>
+          <span class="platform-badge badge-video">+ Cool Down Walk</span>
+        </div>
+      </div>
+      <div class="week-content">
+        <div class="week-inner">
+          
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Monday — LinkedIn</span>
+              <span class="content-type">· The Stats</span>
+            </div>
+            <div class="content-title">6 Weeks of Showing Up: By The Numbers</div>
+            <div class="content-desc">Share real metrics. Followers, engagement, website clicks, whatever you have. If numbers are small, own it. You just ran 6 weeks of content the way you run 10 miles — by showing up.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">It's been 6 weeks since I started posting. I ran a business in silence for 7 years. I went back for CS in silence. I built and shipped Widgetfied in silence. Then I decided to show up. Here's what 6 weeks of actually posting looks like:
+
+[FILL IN: new followers, connection requests, DMs, website visits, Widgetfied trials, video views, cool down walk engagement, whatever you have]
+
+Some numbers are small. Some surprised me. I also ran approximately [6 weeks × 6 days × 10 miles = ~360 miles] during this period. The running and the posting have the same rule: consistency beats intensity.
+
+Take this and write a LinkedIn post that shares real numbers without bragging or apologizing. Frame it through the lens of: I've been building in silence for a decade. This is what 6 weeks of being visible looks like. Keep under 180 words.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Pull stats Sunday night | Post: Monday morning
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Wednesday — Cool Down Walk Video</span>
+              <span class="content-type">· Recap Walk</span>
+            </div>
+            <div class="content-title">What Changed in 6 Weeks</div>
+            <div class="content-desc">Reflect during the cool down walk. What felt different? Did the fear of posting go away? Did the rhythm feel natural? This is the video where you announce: "I'm taking this to more platforms."</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I just recorded a cool down walk video about what's different now vs 6 weeks ago when I started posting. The main thing: [WHAT CHANGED — less fear, found my voice, people actually responded, built a rhythm, etc].
+
+I'm also announcing I'm expanding to [TikTok/Instagram/X — whichever I've decided based on Cycle 1 data]. Same format: cool down walks, real talk, no filter.
+
+Give me 3 caption options for LinkedIn video. These should feel like a checkpoint, not a finale. I built a business for 7 years, rebuilt my life, finished a CS degree at 35. Six weeks of content is nothing — I'm just getting started. Make it clear this is just the first cycle.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: Cool down walk after long run | Post: Evening
+            </div>
+          </div>
+
+          <div class="content-piece">
+            <div class="content-header">
+              <span class="content-day">Friday — LinkedIn</span>
+              <span class="content-type">· The Restart + Expansion</span>
+            </div>
+            <div class="content-title">Back to Week 1 — New Stories, More Platforms</div>
+            <div class="content-desc">Announce the cycle restarts with fresh content from 6 weeks of new runs, new PF interactions, new Widgetfied features. And you're expanding to other platforms.</div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                AI PROMPT — Copy & Paste
+              </div>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+              <div class="ai-prompt-text">I ran a 6-week content cycle: Week 1 (The Contradiction), Week 2 (The Discipline), Week 3 (The Forge), Week 4 (The Build), Week 5 (The People), Week 6 (The Loop). I'm now going back to Week 1, but with 6 weeks of new stories — new runs, new PF conversations, new Widgetfied features, new miles logged.
+
+I'm also expanding beyond LinkedIn. The cool down walk videos are going to [TikTok/Instagram/X]. Same energy. Same format. Just more places to find me.
+
+I built a business for 7 years in silence. I'm not doing that again.
+
+Take this and write a LinkedIn post that explains I'm restarting the cycle and expanding platforms. Make it feel like leveling up, not starting over. A business owner who became an engineer and now he's choosing to be visible. Invite people to follow on other platforms. Keep under 150 words. Confident energy.</div>
+            </div>
+            <div class="timing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Create: During Friday 10-miler | Post: Friday evening
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PLATFORM EXPANSION STRATEGY -->
+  <div class="expansion-card">
+    <h2>Cycle 2+ — Platform Expansion Strategy</h2>
+    <div class="subtitle">After 6 weeks of LinkedIn-first content, expand based on data. You don't have TikTok or Instagram yet — that's fine. LinkedIn is your home base. Expand with intent.</div>
+    <div class="platform-grid">
+
+      <div class="platform-card">
+        <h3>TikTok</h3>
+        <div class="roi-tag roi-high">HIGH ROI — Start Here</div>
+        <ul>
+          <li>Cool down walk videos ARE TikTok content already</li>
+          <li>Algorithm favors new accounts with consistent posting</li>
+          <li>"Business owner → engineer at 35" is a scroll-stopping hook</li>
+          <li>Running content + tech content = underserved niche</li>
+          <li>Create account in Week 6, start posting Cycle 2</li>
+          <li>Repurpose LinkedIn cool down walks with TikTok captions</li>
+          <li>Post 3-4x/week (Tue, Thu, Sat + bonus)</li>
+        </ul>
+      </div>
+
+      <div class="platform-card">
+        <h3>Instagram (Reels)</h3>
+        <div class="roi-tag roi-medium">MEDIUM ROI — Add in Cycle 3</div>
+        <ul>
+          <li>Reels can be same content as TikTok (cross-post)</li>
+          <li>Carousel posts work well for "day in the life" recaps</li>
+          <li>Stories for behind-the-scenes: run stats, code screenshots</li>
+          <li>Harder to grow organically than TikTok right now</li>
+          <li>Wait until you have 10-15 TikToks worth of content to repost</li>
+          <li>Create account in Cycle 2, start posting Cycle 3</li>
+          <li>Your Strava screenshots + code screenshots = content</li>
+        </ul>
+      </div>
+
+      <div class="platform-card">
+        <h3>X (Twitter)</h3>
+        <div class="roi-tag roi-low">LOWER ROI — Optional Cycle 3+</div>
+        <ul>
+          <li>Good for tech/founder audience but requires daily engagement</li>
+          <li>Thread format works for your running × coding parallels</li>
+          <li>Less video-native than TikTok/Instagram</li>
+          <li>Time-intensive: need to reply, quote tweet, stay active</li>
+          <li>Only add if LinkedIn + TikTok are running smoothly</li>
+          <li>Best for: connecting with indie hacker / SaaS community</li>
+          <li>Can repurpose LinkedIn text posts as tweets/threads</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CROSS-PLATFORM FUNNEL -->
+  <div class="funnel-card">
+    <h2>Cross-Platform Funnel</h2>
+    <div class="subtitle">LinkedIn is home base. Drive followers FROM LinkedIn to new platforms, and FROM new platforms back to Widgetfied.</div>
+    <div class="funnel-flow">
+      <div class="funnel-node">
+        <div class="fn-label">LinkedIn</div>
+        <div class="fn-detail">2700 connections<br>Text + Video posts<br>Home base</div>
+      </div>
+      <span class="funnel-arrow">→</span>
+      <div class="funnel-node">
+        <div class="fn-label">TikTok</div>
+        <div class="fn-detail">Cool down walks<br>New audience<br>Discovery engine</div>
+      </div>
+      <span class="funnel-arrow">→</span>
+      <div class="funnel-node">
+        <div class="fn-label">Instagram</div>
+        <div class="fn-detail">Reels + Stories<br>Cross-post TikTok<br>Visual portfolio</div>
+      </div>
+      <span class="funnel-arrow">→</span>
+      <div class="funnel-node">
+        <div class="fn-label" style="color: var(--orange);">Widgetfied</div>
+        <div class="fn-detail">All roads lead here<br>Link in bio everywhere<br>Free trial CTA</div>
+      </div>
+    </div>
+    <ul class="funnel-notes">
+      <li><strong>LinkedIn → TikTok:</strong> "I'm posting cool down walk videos on TikTok now. Same content, same energy. Follow me there: @[handle]"</li>
+      <li><strong>TikTok → LinkedIn:</strong> "Full story on LinkedIn. Link in bio." (TikTok reaches new audience who follows you back to LI)</li>
+      <li><strong>All platforms → Widgetfied:</strong> Link in every bio. Mention it naturally in content. Never hard-sell.</li>
+      <li><strong>LinkedIn CTA strategy:</strong> Soft CTA every Friday post. "If you run a service business — restaurant, contractor, delivery, anything — check out Widgetfied. Modular widgets, no lock-in: widgetfied.com"</li>
+      <li><strong>Cycle 1 (Weeks 1-6):</strong> LinkedIn only. Build the content muscle.</li>
+      <li><strong>Cycle 2 (Weeks 7-12):</strong> LinkedIn + TikTok. Same cool down walk content, optimized captions for each.</li>
+      <li><strong>Cycle 3 (Weeks 13-18):</strong> LinkedIn + TikTok + Instagram. Cross-post Reels. Evaluate X/Twitter ROI.</li>
+    </ul>
+  </div>
+
+  <!-- CYCLE INFO -->
+  <div class="cycle-info">
+    <h3>The System</h3>
+    <p>Complete all 6 weeks, then return to Week 1 with fresh content. Each cycle deepens your story, grows your audience, and expands to new platforms. You ran a business for 7 years. You got a CS degree at 35. You run 10 miles a day. You built and shipped a modular widget platform for service businesses — ordering, routing, booking, payments, AI estimates, customer portals. Free to start. Now let people see it. The AI prompts work every time — feed them your raw cool down walk voice memo and direct the output with your depth.</p>
+  </div>
+
+  <script>
+    function toggleWeek(weekNum) {
+      const week = document.querySelector(`[data-week="${weekNum}"]`);
+      week.classList.toggle('expanded');
+    }
+
+    function copyPrompt(btn) {
+      const promptText = btn.nextElementSibling.textContent;
+      navigator.clipboard.writeText(promptText).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+
+    // Expand Week 1 by default
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('[data-week="1"]').classList.add('expanded');
+    });
+  </script>
+
+</body>
+</html>
