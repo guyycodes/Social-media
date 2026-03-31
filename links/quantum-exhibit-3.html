@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exhibit #3: Emergent Spacetime — @grit_by_grit</title>
+  <meta name="description" content="Mathematical framework for emergent spacetime from quantum entanglement networks.">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="content-page">
+
+  <!-- ANIMATED MOTION BACKDROP -->
+  <div class="backdrop">
+    <div class="backdrop-base"></div>
+    <div class="backdrop-gradient"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="shimmer"></div>
+    <div class="backdrop-grid"></div>
+    <div class="backdrop-noise"></div>
+  </div>
+
+  <div class="page content-wrapper">
+
+    <!-- BACK NAVIGATION -->
+    <nav class="content-nav">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Links
+      </a>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="content-header">
+      <div class="exhibit-label">Exhibit #3</div>
+      <h1>Emergent Spacetime from Quantum Entanglement Networks</h1>
+      <div class="content-meta">Mathematical Framework & Toy Model</div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="content-article">
+      
+      <p class="lead">Spacetime geometry is not fundamental. It emerges from the entanglement structure of an underlying quantum information network. Gravity is a macroscopic side effect of how entanglement is distributed across this network.</p>
+
+      <!-- SECTION 1 -->
+      <section class="math-section">
+        <h2>1. The Core Hypothesis</h2>
+        <p>Spacetime geometry is not fundamental. It emerges from the entanglement structure of an underlying quantum information network. Gravity is a macroscopic side effect of how entanglement is distributed across this network.</p>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="math-section">
+        <h2>2. Mathematical Setup</h2>
+        
+        <div class="subsection">
+          <h3>2.1 The Entanglement Network</h3>
+          <p>Consider a graph <span class="math">G = (V, E)</span> with <span class="math">N×N</span> nodes arranged on a 2D lattice. Each node represents a quantum degree of freedom. Each edge carries an entanglement entropy value <span class="math">E(i,j) ∈ (0, E₀]</span> quantifying how entangled adjacent nodes are.</p>
+          
+          <div class="insight-box">
+            <h4>Unperturbed State (Flat Space)</h4>
+            <p><span class="math">E(i,j) = E₀</span> for all edges → uniform entanglement → flat geometry</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>2.2 The Ryu-Takayanagi Bridge</h3>
+          <p>The Ryu-Takayanagi formula from AdS/CFT relates entanglement entropy to geometric area:</p>
+          <div class="equation">
+            <span class="math">S(A) = Area(γ_A) / 4G_N</span>
+          </div>
+          <p>We invert this intuition: more entanglement between regions implies shorter geometric distance between them. This gives our fundamental distance-entanglement relation:</p>
+          <div class="equation">
+            <span class="math">ds(i,j) = α / E(i,j)</span>
+          </div>
+          <p>where <span class="math">α</span> is a coupling constant and <span class="math">ds</span> is the emergent proper distance between adjacent nodes.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>2.3 Introducing "Mass" as Entanglement Disruption</h3>
+          <p>A mass at lattice position <span class="math">(cx, cy)</span> disrupts local entanglement. Physically: concentrated energy/information density reduces the coherent entanglement between neighboring quantum degrees of freedom.</p>
+          <div class="equation">
+            <span class="math">E(i,j) = E₀ - M · exp(-r² / 2σ²)</span>
+          </div>
+          <ul class="math-list">
+            <li><span class="math">M</span> = mass parameter (strength of disruption)</li>
+            <li><span class="math">r</span> = lattice distance from (cx,cy) to the midpoint of edge (i,j)</li>
+            <li><span class="math">σ</span> = characteristic width of the mass distribution</li>
+            <li>Floor: <span class="math">E(i,j) ≥ ε > 0</span> (entanglement cannot be negative)</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>2.4 Emergent Metric Tensor</h3>
+          <p>On the lattice, proper distances to neighbors define a discrete metric. For a node at position <span class="math">(i,j)</span>, the metric components are:</p>
+          <div class="equation">
+            <span class="math">g_xx(i,j) = ds_x(i,j)² = [α / E_x(i,j)]²</span><br>
+            <span class="math">g_yy(i,j) = ds_y(i,j)² = [α / E_y(i,j)]²</span>
+          </div>
+          <p>For a conformally flat metric <span class="math">g = e^{2φ} δ</span> (diagonal, isotropic to leading order), the conformal factor is:</p>
+          <div class="equation">
+            <span class="math">φ(i,j) = ln[ (ds_x + ds_y) / 2 ]</span>
+          </div>
+          <p>In the unperturbed case: <span class="math">φ = ln(α/E₀) = const → flat space.</span> ✓</p>
+        </div>
+
+        <div class="subsection">
+          <h3>2.5 Gaussian Curvature from Conformal Factor</h3>
+          <p>The Gaussian curvature for a 2D conformal metric <span class="math">g = e^{2φ} δ</span> is:</p>
+          <div class="equation">
+            <span class="math">K = -e^{-2φ} ∇²φ</span>
+          </div>
+          <p>Discrete Laplacian on the lattice:</p>
+          <div class="equation">
+            <span class="math">∇²φ(i,j) = φ(i+1,j) + φ(i-1,j) + φ(i,j+1) + φ(i,j-1) - 4·φ(i,j)</span>
+          </div>
+          <p>Therefore:</p>
+          <div class="equation">
+            <span class="math">K(i,j) = -e^{-2φ(i,j)} · [φ(i+1,j) + φ(i-1,j) + φ(i,j+1) + φ(i,j-1) - 4·φ(i,j)]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="math-section">
+        <h2>3. Analytical Predictions</h2>
+        
+        <div class="subsection">
+          <h3>3.1 Small-Mass Expansion</h3>
+          <p>For <span class="math">M << E₀</span> (weak field limit, analogous to linearized gravity):</p>
+          <div class="equation">
+            <span class="math">E ≈ E₀ - M·exp(-r²/2σ²)</span><br>
+            <span class="math">ds = α/E ≈ (α/E₀) · [1 + (M/E₀)·exp(-r²/2σ²)]</span><br>
+            <span class="math">φ ≈ ln(α/E₀) + (M/E₀)·exp(-r²/2σ²)</span>
+          </div>
+          <p><span class="math">φ = φ₀ + δφ(r)</span> where <span class="math">δφ(r) = (M/E₀)·exp(-r²/2σ²)</span></p>
+        </div>
+
+        <div class="subsection">
+          <h3>3.2 Predicted Curvature Profile</h3>
+          <div class="equation">
+            <span class="math">K ≈ -e^{-2φ₀} · ∇²[δφ]</span>
+          </div>
+          <p>The 2D Laplacian of a Gaussian in polar coordinates:</p>
+          <div class="equation">
+            <span class="math">∇²[exp(-r²/2σ²)] = (r²/σ⁴ - 2/σ²) · exp(-r²/2σ²)</span>
+          </div>
+          <p>Therefore:</p>
+          <div class="equation">
+            <span class="math">K(r) ≈ (α/E₀)⁻² · (M/E₀) · (2/σ² - r²/σ⁴) · exp(-r²/2σ²)</span>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>3.3 Key Features of the Curvature Profile</h3>
+          <ul class="feature-list">
+            <li><strong>At r = 0 (at the mass):</strong> K > 0 — positive curvature, space is "dented" inward, exactly like a gravitational well.</li>
+            <li><strong>At r = σ√2:</strong> K = 0 — curvature changes sign.</li>
+            <li><strong>At r > σ√2:</strong> K < 0 — negative curvature ring, the "stretching" of space around the well.</li>
+            <li><strong>At r >> σ:</strong> K → 0 — asymptotically flat, gravity falls off.</li>
+          </ul>
+          <p>This profile matches the curvature signature of a smooth, localized mass distribution in 2D general relativity.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>3.4 Comparison with 2D Newtonian Gravity</h3>
+          <p>In 2D, the Poisson equation for gravity is:</p>
+          <div class="equation">
+            <span class="math">∇²Φ_N = 4πG · ρ(r)</span>
+          </div>
+          <p>For a Gaussian mass density <span class="math">ρ = (M/2πσ²)·exp(-r²/2σ²)</span>:</p>
+          <div class="equation">
+            <span class="math">K_Newton(r) ∝ ρ(r) ∝ (M/σ²) · exp(-r²/2σ²)</span>
+          </div>
+          <p>Our emergent curvature K_emergent differs from K_Newton by the factor <span class="math">(2/σ² - r²/σ⁴)</span> — it's the Laplacian of the Gaussian rather than the Gaussian itself. This is expected: our model derives curvature from the second derivative of the entanglement perturbation, while Newtonian gravity relates curvature directly to mass density.</p>
+          <div class="insight-box highlight">
+            <p><strong>The crucial result:</strong> both produce curvature that is positive near the mass, falls off with distance, and is proportional to M. Gravity emerges from entanglement.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="math-section">
+        <h2>4. What the Toy Model Demonstrates</h2>
+        <p>The implementation on a 21×21 lattice:</p>
+        <ul class="math-list">
+          <li>Constructs the entanglement field with a Gaussian mass perturbation</li>
+          <li>Derives emergent proper distances from entanglement values</li>
+          <li>Computes the conformal factor φ of the emergent metric</li>
+          <li>Calculates Gaussian curvature K via discrete Laplacian</li>
+          <li>Compares radial curvature profile with the analytical prediction</li>
+          <li>Varies mass parameter M to confirm K ∝ M (linearity = equivalence principle)</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section class="math-section">
+        <h2>5. Implications</h2>
+        <p>If this framework is correct:</p>
+        <ul class="implication-list">
+          <li><strong>The vacuum energy discrepancy dissolves:</strong> vacuum fluctuation energy doesn't automatically curve emergent spacetime because curvature depends on entanglement structure, not raw energy content.</li>
+          <li><strong>Gravity is not quantized in the traditional sense:</strong> it's a statistical/emergent property, like temperature. You don't quantize temperature.</li>
+          <li><strong>Black hole singularities may be resolved:</strong> the entanglement network has a natural minimum scale (the Planck-scale node spacing), preventing infinite curvature.</li>
+          <li><strong>Wormholes = entanglement bridges:</strong> ER = EPR made literal in the network.</li>
+        </ul>
+      </section>
+
+    </article>
+
+    <!-- EXHIBIT NAVIGATION -->
+    <div class="exhibit-nav">
+      <a href="quantum-exhibit-2.html" class="exhibit-prev">← Previous Exhibit: Three Quantum Mysteries</a>
+      <a href="quantum-exhibit-4.html" class="exhibit-next">Next Exhibit: Experimental Results →</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-tagline">GRIT BY GRIT. MILE BY MILE. LINE BY LINE.</div>
+      <div class="footer-sub">An afternoon exploring quantum gravity with AI — not a physicist.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

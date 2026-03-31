@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistical Analysis — Survey Sample Size Methodology</title>
+  <meta name="description" content="Rigorous statistical methodology for determining survey sample size using confidence intervals and finite population correction.">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="content-page">
+
+  <!-- ANIMATED MOTION BACKDROP -->
+  <div class="backdrop">
+    <div class="backdrop-base"></div>
+    <div class="backdrop-gradient"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="shimmer"></div>
+    <div class="backdrop-grid"></div>
+    <div class="backdrop-noise"></div>
+  </div>
+
+  <div class="page content-wrapper">
+
+    <!-- BACK NAVIGATION -->
+    <nav class="content-nav">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Links
+      </a>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="content-header">
+      <div class="exhibit-label">Engineering Analysis</div>
+      <h1>Statistical Analysis</h1>
+      <div class="content-meta">Survey Sample Size Methodology — 99% Confidence</div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="content-article">
+      
+      <p class="lead">A rigorous statistical approach for determining the required sample size for a survey targeting the South Texas Rio Grande Valley region. The methodology follows established statistical guidelines with 99% confidence intervals and finite population correction.</p>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="math-section">
+        <h2>Project Overview</h2>
+        <p>The Digital Empowerment Interface (DEI) platform survey aims to gather feedback from students, businesses, and the community in the South Texas Rio Grande Valley region. The survey is designed to:</p>
+        <ul class="math-list">
+          <li>Enhance digital literacy and resource access</li>
+          <li>Maintain complete anonymity for all contributors</li>
+          <li>Provide incentive through a raffle ($250 value or free 6-page website design)</li>
+          <li>Achieve statistical significance for valid conclusions</li>
+        </ul>
+      </section>
+
+      <!-- STATISTICAL PARAMETERS -->
+      <section class="math-section">
+        <h2>Statistical Parameters</h2>
+        
+        <div class="parameter-grid">
+          <div class="param-item">
+            <span class="param-symbol">n</span>
+            <span class="param-desc">Sample size</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">N</span>
+            <span class="param-desc">Population size (1,404,225)</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">p</span>
+            <span class="param-desc">Population proportion</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">p̂</span>
+            <span class="param-desc">Sample proportion (0.5)</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">x̄</span>
+            <span class="param-desc">Sample mean</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">α</span>
+            <span class="param-desc">Significance level (0.01)</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">E</span>
+            <span class="param-desc">Margin of error (1%)</span>
+          </div>
+          <div class="param-item">
+            <span class="param-symbol">z<sub>α/2</sub></span>
+            <span class="param-desc">Critical value (2.576)</span>
+          </div>
+        </div>
+
+        <div class="insight-box">
+          <h4>Statistical Guidelines Applied</h4>
+          <ul class="math-list">
+            <li><span class="math">np(1−p) ≥ 10</span> — Normal approximation condition</li>
+            <li><span class="math">n < 0.05N</span> or <span class="math">n ≥ 30</span> — Sample size requirements</li>
+            <li><span class="math">α = 0.01</span> — 99% confidence interval</li>
+            <li><span class="math">E = 0.01</span> — 1% margin of error</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SAMPLE SIZE CALCULATION -->
+      <section class="math-section">
+        <h2>Sample Size Calculation</h2>
+        
+        <h3>Step 1: Initial Sample Size (Infinite Population)</h3>
+        <p>The sample size formula for proportions with specified confidence and margin of error:</p>
+        
+        <div class="equation large">
+          <span class="math">n = p̂(1 − p̂) · (z<sub>α/2</sub> / E)²</span>
+        </div>
+
+        <p>With no prior data, we assume maximum variance: <span class="math">p̂ = 0.5</span></p>
+        
+        <div class="calculation-steps">
+          <div class="calc-step">
+            <span class="calc-label">Variance component:</span>
+            <span class="calc-math">p̂(1 − p̂) = 0.5 × 0.5 = 0.25</span>
+          </div>
+          <div class="calc-step">
+            <span class="calc-label">Critical value:</span>
+            <span class="calc-math">z<sub>0.005</sub> = 2.576</span> (from z-table for 99% CI)
+          </div>
+          <div class="calc-step">
+            <span class="calc-label">Precision component:</span>
+            <span class="calc-math">(z<sub>α/2</sub> / E)² = (2.576 / 0.01)² = 66,564</span>
+          </div>
+          <div class="calc-step result">
+            <span class="calc-label">Initial sample size:</span>
+            <span class="calc-math">n = 0.25 × 66,564 = 16,641</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FPC SECTION -->
+      <section class="math-section">
+        <h2>Finite Population Correction (FPC)</h2>
+        
+        <p>Since the population is known (N = 1,404,225 from U.S. Census Bureau), we apply the finite population correction factor:</p>
+
+        <div class="equation large">
+          <span class="math">n<sub>corrected</sub> = n<sub>initial</sub> / (1 + (n<sub>initial</sub> − 1) / N)</span>
+        </div>
+
+        <div class="calculation-steps">
+          <div class="calc-step">
+            <span class="calc-label">Population size:</span>
+            <span class="calc-math">N = 1,404,225</span>
+          </div>
+          <div class="calc-step">
+            <span class="calc-label">Initial sample:</span>
+            <span class="calc-math">n<sub>initial</sub> = 16,641</span>
+          </div>
+          <div class="calc-step">
+            <span class="calc-label">Correction denominator:</span>
+            <span class="calc-math">1 + (16,640 / 1,404,225) = 1.01185</span>
+          </div>
+          <div class="calc-step highlight">
+            <span class="calc-label">Corrected sample size:</span>
+            <span class="calc-math">n<sub>corrected</sub> = 16,641 / 1.01185 ≈ 16,446</span>
+          </div>
+        </div>
+
+        <div class="insight-box highlight">
+          <h4>Required Sample Size</h4>
+          <p class="big-result"><strong>16,446 surveys</strong> is our target 🎯</p>
+          <p>After applying FPC, the required sample size reduces from 16,641 to <strong>16,446</strong> due to the known finite population.</p>
+        </div>
+      </section>
+
+      <!-- STRATIFICATION -->
+      <section class="math-section">
+        <h2>Stratified Sampling Distribution</h2>
+        
+        <p>To ensure equal representation across the three target groups, we apply stratification on the basis of overlapping respondent groups:</p>
+
+        <div class="strata-distribution">
+          <div class="strata-item">
+            <span class="strata-label">Students</span>
+            <span class="strata-value">16,446 ÷ 3 ≈ <strong>5,482</strong></span>
+          </div>
+          <div class="strata-item">
+            <span class="strata-label">Business Owners</span>
+            <span class="strata-value">16,446 ÷ 3 ≈ <strong>5,482</strong></span>
+          </div>
+          <div class="strata-item">
+            <span class="strata-label">Community Members</span>
+            <span class="strata-value">16,446 ÷ 3 ≈ <strong>5,482</strong></span>
+          </div>
+        </div>
+
+        <p class="strata-note">Each group requires approximately <strong>5,482 completed surveys</strong> to maintain equal representation in the stratified sample.</p>
+      </section>
+
+      <!-- NORMAL DISTRIBUTION -->
+      <section class="math-section">
+        <h2>Normal Distribution Framework</h2>
+        
+        <p>Given quantitative variables and uncertain population distribution, we ensure <span class="math">n ≥ 30</span> and construct confidence intervals using the normal probability density function:</p>
+
+        <div class="equation large">
+          <span class="math">f(x) = (1/σ√(2π)) · e<sup>−½((x−μ)/σ)²</sup></span>
+        </div>
+
+        <p>For a 99% confidence interval, we integrate over the region where the cumulative probability equals 0.99:</p>
+
+        <div class="equation">
+          <span class="math">P(x₁ ≤ X ≤ x₂) = ∫<sub>x₁</sub><sup>x₂</sup> (1/σ√(2π)) · e<sup>−½((x−μ)/σ)²</sup> dx = 0.99</span>
+        </div>
+
+        <p>Where <span class="math">x₁ = μ − z<sub>α/2</sub>·σ/√n</span> and <span class="math">x₂ = μ + z<sub>α/2</sub>·σ/√n</span></p>
+
+        <div class="insight-box">
+          <h4>Verification</h4>
+          <p>The resulting z-value can be confirmed against the standard normal table: for <span class="math">α/2 = 0.005</span>, the critical value is <span class="math">z = 2.576</span> ✓</p>
+        </div>
+      </section>
+
+      <!-- SUMMARY -->
+      <section class="summary-section">
+        <h2>Methodology Summary</h2>
+        <ol class="results-list">
+          <li>Defined statistical parameters: 99% confidence, 1% margin of error</li>
+          <li>Applied sample size formula for proportions with maximum variance assumption</li>
+          <li>Calculated initial sample size: <strong>16,641</strong></li>
+          <li>Applied finite population correction (FPC) for known population</li>
+          <li>Final corrected sample size: <strong>16,446</strong></li>
+          <li>Stratified equally across 3 respondent groups: <strong>5,482 per group</strong></li>
+          <li>Normal distribution framework verified against z-table</li>
+        </ol>
+
+        <div class="final-conclusion">
+          <h3>Engineering Rigor</h3>
+          <p>This analysis follows established statistical engineering practices including proper confidence interval construction, finite population correction when applicable, and stratified sampling to ensure representative data collection across all target demographics.</p>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-tagline">GRIT BY GRIT. MILE BY MILE. LINE BY LINE.</div>
+      <div class="footer-sub">Statistical methodology for rigorous engineering analysis.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

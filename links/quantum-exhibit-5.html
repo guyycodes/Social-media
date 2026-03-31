@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exhibit #5: Implementation — @grit_by_grit</title>
+  <meta name="description" content="Ada implementation of emergent spacetime from quantum entanglement networks.">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="content-page">
+
+  <!-- ANIMATED MOTION BACKDROP -->
+  <div class="backdrop">
+    <div class="backdrop-base"></div>
+    <div class="backdrop-gradient"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="shimmer"></div>
+    <div class="backdrop-grid"></div>
+    <div class="backdrop-noise"></div>
+  </div>
+
+  <div class="page content-wrapper">
+
+    <!-- BACK NAVIGATION -->
+    <nav class="content-nav">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Links
+      </a>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="content-header">
+      <div class="exhibit-label">Exhibit #5</div>
+      <h1>Implementation</h1>
+      <div class="content-meta">Ada Source Code — Toy Model</div>
+    </header>
+
+    <!-- CODE HEADER -->
+    <div class="code-header-block">
+      <h2>Emergent Spacetime from Quantum Entanglement Networks</h2>
+      <p>Toy Model: 2D Lattice Demonstrating Gravity as Emergent Phenomenon</p>
+      <div class="code-basis">
+        <h4>Mathematical Basis:</h4>
+        <ol>
+          <li>Entanglement entropy <span class="math">E(i,j)</span> on lattice edges</li>
+          <li>Emergent distance <span class="math">ds = α / E</span> (Ryu-Takayanagi inspired)</li>
+          <li>Conformal factor <span class="math">φ = ln(ds)</span></li>
+          <li>Gaussian curvature <span class="math">K = -e^(-2φ) · ∇²φ</span></li>
+          <li>"Mass" = localized entanglement disruption</li>
+          <li>Result: mass creates curvature → gravity emerges</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- SOURCE CODE -->
+    <div class="code-container">
+      <pre class="ada-code"><code><span class="code-keyword">with</span> Ada.Text_IO;                    <span class="code-keyword">use</span> Ada.Text_IO;
+<span class="code-keyword">with</span> Ada.Float_Text_IO;              <span class="code-keyword">use</span> Ada.Float_Text_IO;
+<span class="code-keyword">with</span> Ada.Integer_Text_IO;            <span class="code-keyword">use</span> Ada.Integer_Text_IO;
+<span class="code-keyword">with</span> Ada.Numerics.Elementary_Functions;
+<span class="code-keyword">use</span> Ada.Numerics.Elementary_Functions;
+
+<span class="code-keyword">procedure</span> Emergent_Spacetime <span class="code-keyword">is</span>
+
+   <span class="code-comment">-- Grid parameters (odd N so mass sits at exact center)</span>
+   N : <span class="code-keyword">constant</span> Positive := 21;
+   <span class="code-keyword">subtype</span> Grid_Range <span class="code-keyword">is</span> Integer <span class="code-keyword">range</span> 1 .. N;
+
+   <span class="code-keyword">type</span> Scalar_Field <span class="code-keyword">is</span> <span class="code-keyword">array</span> (Grid_Range, Grid_Range) <span class="code-keyword">of</span> Float;
+
+   <span class="code-comment">-- ============================================================</span>
+   <span class="code-comment">-- PHYSICAL PARAMETERS</span>
+   <span class="code-comment">-- ============================================================</span>
+
+   <span class="code-comment">-- Background entanglement (uniform => flat space)</span>
+   E0 : <span class="code-keyword">constant</span> Float := 1.0;
+
+   <span class="code-comment">-- Distance-entanglement coupling: ds = Alpha / E</span>
+   Alpha : <span class="code-keyword">constant</span> Float := 1.0;
+
+   <span class="code-comment">-- Mass influence width (Gaussian sigma)</span>
+   Sigma : <span class="code-keyword">constant</span> Float := 3.0;
+
+   <span class="code-comment">-- Minimum entanglement floor (prevents division by zero)</span>
+   E_Min : <span class="code-keyword">constant</span> Float := 0.01;
+
+   <span class="code-comment">-- Mass position: center of lattice</span>
+   Cx : <span class="code-keyword">constant</span> Integer := (N + 1) / 2;  <span class="code-comment">-- = 11</span>
+   Cy : <span class="code-keyword">constant</span> Integer := (N + 1) / 2;
+
+   <span class="code-comment">-- ============================================================</span>
+   <span class="code-comment">-- FIELD VARIABLES</span>
+   <span class="code-comment">-- ============================================================</span>
+
+   Entanglement : Scalar_Field := (<span class="code-keyword">others</span> => (<span class="code-keyword">others</span> => E0));
+   Distance     : Scalar_Field := (<span class="code-keyword">others</span> => (<span class="code-keyword">others</span> => 0.0));
+   Phi          : Scalar_Field := (<span class="code-keyword">others</span> => (<span class="code-keyword">others</span> => 0.0));
+   Curvature    : Scalar_Field := (<span class="code-keyword">others</span> => (<span class="code-keyword">others</span> => 0.0));
+
+   <span class="code-comment">-- ============================================================</span>
+   <span class="code-comment">-- HELPER FUNCTIONS</span>
+   <span class="code-comment">-- ============================================================</span>
+
+   <span class="code-keyword">function</span> Lattice_Radius (I, J : Integer) <span class="code-keyword">return</span> Float <span class="code-keyword">is</span>
+   <span class="code-keyword">begin</span>
+      <span class="code-keyword">return</span> Sqrt (Float ((I - Cx) ** 2 + (J - Cy) ** 2));
+   <span class="code-keyword">end</span> Lattice_Radius;
+
+   <span class="code-keyword">function</span> Max_F (A, B : Float) <span class="code-keyword">return</span> Float <span class="code-keyword">is</span>
+   <span class="code-keyword">begin</span>
+      <span class="code-keyword">if</span> A > B <span class="code-keyword">then</span> <span class="code-keyword">return</span> A; <span class="code-keyword">else</span> <span class="code-keyword">return</span> B; <span class="code-keyword">end</span> <span class="code-keyword">if</span>;
+   <span class="code-keyword">end</span> Max_F;
+
+   <span class="code-keyword">function</span> Abs_F (A : Float) <span class="code-keyword">return</span> Float <span class="code-keyword">is</span>
+   <span class="code-keyword">begin</span>
+      <span class="code-keyword">if</span> A < 0.0 <span class="code-keyword">then</span> <span class="code-keyword">return</span> -A; <span class="code-keyword">else</span> <span class="code-keyword">return</span> A; <span class="code-keyword">end</span> <span class="code-keyword">if</span>;
+   <span class="code-keyword">end</span> Abs_F;
+
+   <span class="code-comment">-- ============================================================</span>
+   <span class="code-comment">-- CORE COMPUTATION: Build fields for a given mass parameter M</span>
+   <span class="code-comment">-- ============================================================</span>
+
+   <span class="code-keyword">procedure</span> Compute_Fields (M : Float) <span class="code-keyword">is</span>
+      R           : Float;
+      Perturbation : Float;
+      Laplacian    : Float;
+      Scale_Factor : Float;
+   <span class="code-keyword">begin</span>
+      <span class="code-comment">-- Step 1: Entanglement field with mass perturbation</span>
+      <span class="code-comment">-- E(i,j) = E0 - M * exp(-r^2 / 2*sigma^2)</span>
+      <span class="code-comment">-- Mass disrupts local entanglement proportional to M</span>
+      <span class="code-keyword">for</span> I <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+         <span class="code-keyword">for</span> J <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+            R := Lattice_Radius (I, J);
+            Perturbation := M * Exp (-(R ** 2) / (2.0 * Sigma ** 2));
+            Entanglement (I, J) := Max_F (E0 - Perturbation, E_Min);
+         <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+      <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+
+      <span class="code-comment">-- Step 2: Emergent proper distance  ds = alpha / E</span>
+      <span class="code-comment">-- More entanglement => shorter distance (Ryu-Takayanagi)</span>
+      <span class="code-keyword">for</span> I <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+         <span class="code-keyword">for</span> J <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+            Distance (I, J) := Alpha / Entanglement (I, J);
+         <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+      <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+
+      <span class="code-comment">-- Step 3: Conformal factor  phi = ln(ds)</span>
+      <span class="code-comment">-- For metric g = e^(2*phi) * delta</span>
+      <span class="code-comment">-- On unit lattice, ds = e^phi => phi = ln(ds)</span>
+      <span class="code-keyword">for</span> I <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+         <span class="code-keyword">for</span> J <span class="code-keyword">in</span> Grid_Range <span class="code-keyword">loop</span>
+            Phi (I, J) := Log (Distance (I, J));
+         <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+      <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+
+      <span class="code-comment">-- Step 4: Gaussian curvature  K = -e^(-2*phi) * Laplacian(phi)</span>
+      <span class="code-comment">-- Using discrete Laplacian on the lattice</span>
+      <span class="code-comment">-- Boundary nodes get zero curvature (not enough neighbors)</span>
+      Curvature := (<span class="code-keyword">others</span> => (<span class="code-keyword">others</span> => 0.0));
+      <span class="code-keyword">for</span> I <span class="code-keyword">in</span> 2 .. N - 1 <span class="code-keyword">loop</span>
+         <span class="code-keyword">for</span> J <span class="code-keyword">in</span> 2 .. N - 1 <span class="code-keyword">loop</span>
+            Laplacian := Phi (I + 1, J) + Phi (I - 1, J)
+                       + Phi (I, J + 1) + Phi (I, J - 1)
+                       - 4.0 * Phi (I, J);
+            Scale_Factor := Exp (-2.0 * Phi (I, J));
+            Curvature (I, J) := -Scale_Factor * Laplacian;
+         <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+      <span class="code-keyword">end</span> <span class="code-keyword">loop</span>;
+   <span class="code-keyword">end</span> Compute_Fields;</code></pre>
+    </div>
+
+    <!-- ALGORITHMS -->
+    <article class="content-article">
+      <section class="algorithm-section">
+        <h2>Algorithm Walkthrough</h2>
+        
+        <div class="algorithm-step">
+          <h3>Step 1: Build Entanglement Field</h3>
+          <div class="code-snippet">
+            <code>E(i,j) = E₀ - M · exp(-r² / 2σ²)</code>
+          </div>
+          <p>Mass disrupts local entanglement proportional to its strength <span class="math">M</span>. The Gaussian falloff ensures the disruption is localized.</p>
+        </div>
+
+        <div class="algorithm-step">
+          <h3>Step 2: Compute Emergent Distances</h3>
+          <div class="code-snippet">
+            <code>ds = α / E</code>
+          </div>
+          <p>Higher entanglement means shorter emergent distance — the Ryu-Takayanagi intuition inverted. This is the bridge from quantum information to geometry.</p>
+        </div>
+
+        <div class="algorithm-step">
+          <h3>Step 3: Calculate Conformal Factor</h3>
+          <div class="code-snippet">
+            <code>φ = ln(ds)</code>
+          </div>
+          <p>For a conformally flat metric <span class="math">g = e^(2φ) · δ</span>, the conformal factor captures how the metric deviates from flat space.</p>
+        </div>
+
+        <div class="algorithm-step">
+          <h3>Step 4: Compute Gaussian Curvature</h3>
+          <div class="code-snippet">
+            <code>K = -e^(-2φ) · ∇²φ</code>
+          </div>
+          <p>Using the discrete Laplacian on the lattice, we calculate how curved the emergent space is at each point.</p>
+        </div>
+      </section>
+
+      <section class="experiment-overview">
+        <h2>Four Experiments</h2>
+        <div class="experiment-list">
+          <div class="exp-item">
+            <span class="exp-num">01</span>
+            <div class="exp-desc">
+              <h4>Single Mass Analysis</h4>
+              <p>Full field computation showing entanglement cross-section and radial curvature profile compared to analytical predictions.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-num">02</span>
+            <div class="exp-desc">
+              <h4>Linearity Test</h4>
+              <p>Verifies <span class="math">K ∝ M</span> — the equivalence principle. Peak curvature should scale linearly with mass in the weak field limit.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-num">03</span>
+            <div class="exp-desc">
+              <h4>2D Curvature Map</h4>
+              <p>ASCII visualization showing the gravitational well pattern: positive curvature at center, negative stretching ring, asymptotically flat edges.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-num">04</span>
+            <div class="exp-desc">
+              <h4>Flat Space Verification</h4>
+              <p>With <span class="math">M = 0</span>, curvature should be exactly zero everywhere. A sanity check that the math works.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- EXHIBIT NAVIGATION -->
+    <div class="exhibit-nav">
+      <a href="quantum-exhibit-4.html" class="exhibit-prev">← Previous Exhibit: Experimental Results</a>
+      <span class="exhibit-next disabled">Next Exhibit →</span>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-tagline">GRIT BY GRIT. MILE BY MILE. LINE BY LINE.</div>
+      <div class="footer-sub">An afternoon exploring quantum gravity with AI — not a physicist.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
