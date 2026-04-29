@@ -502,6 +502,32 @@ body {
 .icon-demo { background: rgba(100, 255, 160, 0.1); color: #64ffa0; }
 .icon-medium { background: rgba(255, 255, 255, 0.08); color: #ccc; }
 .icon-huggingface { background: rgba(255, 208, 54, 0.12); color: #ffd036; }
+.icon-x { background: rgba(255, 255, 255, 0.08); color: #e7e9ea; }
+.icon-reddit { background: rgba(255, 69, 0, 0.12); color: #ff6b3a; }
+.icon-wf-demo { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+.icon-github { background: rgba(255, 255, 255, 0.08); color: #e6edf3; }
+
+/* WIDGETFIED BIZ DEMOS SECTION */
+.section-row {
+  margin-top: 24px;
+  animation: fade-up 0.6s ease-out 0.2s both;
+}
+
+.section-row > .col-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--subtle);
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
 
 /* FOOTER */
 .footer {
@@ -1491,6 +1517,10 @@ body {
 
   .column {
     gap: 8px;
+  }
+
+  .demo-grid {
+    grid-template-columns: 1fr;
   }
 
   .profile h1 { font-size: 28px; }
