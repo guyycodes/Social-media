@@ -498,15 +498,17 @@ a { color: inherit; }
 
 .featured-logo { display: block; margin: 0 auto 14px; max-width: 100%; height: auto; }
 
+/* ========== STATS (standalone strip under the profile) ========== */
 .stats {
   display: flex;
   justify-content: center;
-  gap: 36px;
-  margin: 0 auto 16px;
-  padding: 12px 0;
+  gap: 40px;
+  margin: 0 auto 26px;
+  padding: 14px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  max-width: 420px;
+  max-width: 440px;
+  animation: fade-up 0.6s var(--ease) 0.03s both;
 }
 
 .stat { display: flex; flex-direction: column; text-align: center; }
@@ -514,7 +516,7 @@ a { color: inherit; }
 .stat dd {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 24px;
-  color: var(--wf-cyan);
+  color: var(--orange);
   line-height: 1;
 }
 
