@@ -3,106 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@grit_by_grit — Links</title>
-  <meta name="description" content="Morgan Beals — Business Opts turned engineer. Built Widgetfied. Follow @grit_by_grit everywhere.">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Morgan Beals — @grit_by_grit</title>
+  <meta name="description" content="Morgan Beals — Founder of LevelUp Apps & Software, software architect, computer scientist. Free creator sites, Widgetfied, HandyMiner, open-source engineering, and everywhere to follow @grit_by_grit.">
+  <link rel="canonical" href="https://links.widgetfied.com/links/">
+  <meta name="theme-color" content="#111111">
+
+  <!-- Social share card -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Morgan Beals — @grit_by_grit">
+  <meta property="og:description" content="Founder → Software Architect → Computer Scientist. LevelUp creator sites, Widgetfied, HandyMiner, and everywhere to follow along.">
+  <meta property="og:url" content="https://links.widgetfied.com/links/">
+  <meta property="og:image" content="https://links.widgetfied.com/links/avatar-og.jpg">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@grit_by_grit">
+  <meta name="twitter:title" content="Morgan Beals — @grit_by_grit">
+  <meta name="twitter:description" content="Founder → Software Architect → Computer Scientist. LevelUp creator sites, Widgetfied, HandyMiner, and everywhere to follow along.">
+  <meta name="twitter:image" content="https://links.widgetfied.com/links/avatar-og.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FC4C02'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='34' fill='%23fff'%3EMB%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ANIMATED MOTION BACKDROP -->
-  <div class="backdrop">
+  <!-- BACKDROP (4 layers; all motion is disabled under prefers-reduced-motion) -->
+  <div class="backdrop" aria-hidden="true">
     <div class="backdrop-base"></div>
     <div class="backdrop-gradient"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-    <div class="shimmer"></div>
-    <div class="backdrop-grid"></div>
     <div class="backdrop-noise"></div>
   </div>
 
-  <div class="page">
+  <main class="page">
 
     <!-- PROFILE -->
-    <div class="profile">
+    <header class="profile">
       <div class="avatar">
-        <img src="./IMG_0199-fotor-202602287225.png" alt="Morgan Beals — @grit_by_grit">
+        <img src="./avatar.webp" width="240" height="240" alt="Morgan Beals" fetchpriority="high">
       </div>
       <h1>MORGAN BEALS</h1>
-      <div class="handle">@grit_by_grit</div>
-      <div class="bio">
-        <strong>Business Opts → Engineer → Builder.</strong>
-      </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="stats-container">
-      <div class="stats-wrapper">
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-num">3000+</div>
-            <div class="stat-label">Downloads</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">8</div>
-            <div class="stat-label">Widgets</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">100+</div>
-            <div class="stat-label">MAU & Growing</div>
-          </div>
-        </div>
-      </div>
-      <a href="https://docs.google.com/document/d/1-MzjBSdMD6FHaT4JBg0SAW-db602FsYPzJb8LD0uc9Y/edit?tab=t.0" target="_blank" rel="noopener" class="resume-stat">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" fill="#4285F4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" fill="#AECBFA" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 13H8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17H8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9H9H8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="stat-label resume-label">Resume / CV</div>
+      <a class="handle" href="https://www.instagram.com/grit_by_grit" target="_blank" rel="noopener">@grit_by_grit</a>
+      <p class="tagline">Founder <span class="arrow">→</span> Software Architect <span class="arrow">→</span> Computer Scientist</p>
+      <p class="bio">Serving as a Scientist by day, shipping Websites & custom software by night through my LevelUp platform what I build gets creators & small businesses found & scale.</p>
+      <a href="https://docs.google.com/document/d/1-MzjBSdMD6FHaT4JBg0SAW-db602FsYPzJb8LD0uc9Y/edit?tab=t.0" target="_blank" rel="noopener" class="resume-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6C5.47 2 4.96 2.21 4.59 2.59C4.21 2.96 4 3.47 4 4V20C4 20.53 4.21 21.04 4.59 21.41C4.96 21.79 5.47 22 6 22H18C18.53 22 19.04 21.79 19.41 21.41C19.79 21.04 20 20.53 20 20V8L14 2Z" fill="#4285F4"/><path d="M14 2V8H20" fill="#AECBFA"/><path d="M16 13H8M16 17H8M10 9H8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Resume / CV
       </a>
-    </div>
+    </header>
 
-    <!-- FEATURED — HANDYMINER PRE-LAUNCH -->
-    <div class="featured featured-handyminer">
-      <div class="featured-label">Coming Soon — Pre-Launch</div>
-      <!-- HandyMiner Logo SVG -->
-      <svg class="featured-logo" width="220" height="54" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hm-logo-grad" x1="0%" y1="0%" x2="200%" y2="0%">
-            <stop offset="0%" stop-color="#6aa9ff"/>
-            <stop offset="30%" stop-color="#4d8ed9"/>
-            <stop offset="50%" stop-color="#82bcff"/>
-            <stop offset="70%" stop-color="#4d8ed9"/>
-            <stop offset="100%" stop-color="#6aa9ff"/>
-            <animate attributeName="x1" values="0%;-100%;0%" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="x2" values="200%;100%;200%" dur="4s" repeatCount="indefinite"/>
-          </linearGradient>
-        </defs>
-        <g transform="translate(0, 6)">
-          <!-- Pickaxe icon  https://www.youtube.com/watch?v=uL1zU4HvZgc&t=7s -->
-          <path d="M8 22 Q 32 8 56 22" fill="none" stroke="url(#hm-logo-grad)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M8 22 L14 28 M56 22 L50 28" fill="none" stroke="url(#hm-logo-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M32 14 L32 48" fill="none" stroke="#6aa9ff" stroke-width="4" stroke-linecap="round"/>
-        </g>
-        <text x="72" y="38" font-family="Georgia, 'Times New Roman', Times, serif" font-size="25" font-weight="600" fill="url(#hm-logo-grad)" letter-spacing="1">HandyMiner</text>
-      </svg>
-      <!-- Feature badges -->
-      <div class="featured-widgets">
-        <span style="color: #6aa9ff; font-weight: 600;">Lead Mining</span>
-        <span>Agentic AI</span>
-        <span>Learning from Data</span>
-        <span style="color: rgba(255,255,255,0.35); font-style: italic;">Permits Data</span>
-      </div>
-      <div class="featured-desc">An AI lead-mining agent for roofers, plumbers, electricians & trades. Connect your jobs sheet and HandyMiner mines public listings for new leads — learning from every ne of your customers to get sharper week after week.</div>
-      <a href="https://handyminer.ai" target="_blank" rel="noopener" class="featured-cta">Join the Pre-Launch List →</a>
-    </div>
+    <!-- FOLLOW: compact icon grid so eight destinations read as one group -->
+    <section class="follow" aria-labelledby="follow-label">
+      <h2 id="follow-label" class="section-label">Follow</h2>
+      <nav class="social-grid" aria-label="Social profiles">
+        <a href="https://www.tiktok.com/@grit_by_grit" target="_blank" rel="noopener" class="social-tile icon-tiktok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.11v-3.5a6.37 6.37 0 00-.82-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg>
+          <span>TikTok</span>
+        </a>
+        <a href="https://www.instagram.com/grit_by_grit" target="_blank" rel="noopener" class="social-tile icon-instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.youtube.com/@widgetfied" target="_blank" rel="noopener" class="social-tile icon-youtube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a href="https://x.com/grit_by_grit" target="_blank" rel="noopener" class="social-tile icon-x">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
+        </a>
+        <a href="https://www.linkedin.com/in/morgbeals/" target="_blank" rel="noopener" class="social-tile icon-linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://medium.com/@guyycodes" target="_blank" rel="noopener" class="social-tile icon-medium">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <span>Medium</span>
+        </a>
+        <a href="https://www.strava.com/athletes/71290764" target="_blank" rel="noopener" class="social-tile icon-strava">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
+          <span>Strava</span>
+        </a>
+        <a href="https://www.reddit.com/user/One_Pirate_4022" target="_blank" rel="noopener" class="social-tile icon-reddit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+          <span>Reddit</span>
+        </a>
+      </nav>
+    </section>
 
-    <!-- FEATURED — WIDGETFIED -->
-    <div class="featured">
-      <div class="featured-label">My SaaS — Live Now</div>
-      <!-- Animated Widgetfied logo SVG from codebase -->
-      <svg class="featured-logo" width="200" height="56" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+    <!-- FEATURED — LEVELUP (the one element that is allowed to stand out) -->
+    <section class="featured featured-levelup" aria-labelledby="lu-heading">
+      <div class="featured-label">My studio · levelupco.com</div>
+
+      <!-- LevelUp lockup: LU mark + Michroma wordmark over the blue→amber rule -->
+      <a href="https://levelupco.com" target="_blank" rel="noopener" class="lu-lockup" aria-label="LevelUp Apps & Software">
+        <svg class="lu-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <rect width="100" height="100" rx="18" fill="#000"/>
+          <path d="M20 25 H30 V65 H80 V75 H20 Z" fill="#fafafa"/>
+          <path d="M35 28.5 H41.5 V46 A12.5 7 0 0 0 66.5 46 V28.5 H73 V46 A19 16 0 0 1 35 46 Z" fill="#fafafa"/>
+        </svg>
+        <span class="lu-word">
+          <span class="lu-wordmark">LEVELUP</span>
+          <span class="lu-rule" aria-hidden="true"></span>
+        </span>
+      </a>
+
+      <h2 id="lu-heading" class="featured-headline">Linktree rents you a list.<br>LevelUp gives you a site.</h2>
+
+      <p class="featured-desc">
+        Free creator sites that retire the link-in-bio page: your own domain, your own look, one page your followers actually land on.
+        Prerendered so Google and AI search find you, with a built-in CMS so you own every word.
+        The same engine ships service-business sites and bilingual storefronts. Live in weeks, and you keep the keys.
+      </p>
+
+      <ul class="featured-chips" aria-label="What LevelUp builds">
+        <li class="chip-hot">Free creator sites</li>
+        <li>Service-business sites</li>
+        <li>Bilingual storefronts</li>
+        <li>SEO + AI search</li>
+        <li>You own it</li>
+      </ul>
+
+      <a href="https://levelupco.com/contact/" target="_blank" rel="noopener" class="featured-cta cta-levelup">Claim your free creator site →</a>
+    </section>
+
+    <!-- FEATURED — WIDGETFIED (secondary; its own stats sit with it) -->
+    <section class="featured featured-widgetfied" aria-labelledby="wf-heading">
+      <div class="featured-label">My SaaS · Live now</div>
+      <h2 id="wf-heading" class="visually-hidden">Widgetfied</h2>
+      <svg class="featured-logo" width="200" height="50" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="wf-logo-grad" x1="0%" y1="0%" x2="200%" y2="0%">
             <stop offset="0%" stop-color="#a855f7"/>
@@ -110,8 +144,6 @@
             <stop offset="50%" stop-color="#22d3ee"/>
             <stop offset="75%" stop-color="#60a5fa"/>
             <stop offset="100%" stop-color="#a855f7"/>
-            <animate attributeName="x1" values="0%;-100%;0%" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="x2" values="200%;100%;200%" dur="3s" repeatCount="indefinite"/>
           </linearGradient>
           <linearGradient id="wf-icon-bg" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#1e293b"/>
@@ -119,181 +151,169 @@
           </linearGradient>
         </defs>
         <rect x="4" y="4" width="72" height="72" rx="12" fill="url(#wf-icon-bg)"/>
-        <g transform="translate(4, 12)">
-          <path d="M10 15 L22 45 L34 15 L46 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M46 45 L46 15" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M46 15 L60 15" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M46 29 L56 29" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(4, 12)" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 15 L22 45 L34 15 L46 45"/><path d="M46 45 L46 15"/><path d="M46 15 L60 15"/><path d="M46 29 L56 29"/>
         </g>
         <text x="90" y="52" font-family="Georgia, 'Times New Roman', Times, serif" font-size="34" font-weight="600" fill="url(#wf-logo-grad)">widgetfied</text>
       </svg>
-      <!-- Widget list with clear hierarchy -->
-      <div class="featured-widgets">
-        <span class="widget-new">Free Hosted Biz-Website</span>
-        <span>Data Miner</span>
-        <span>Cart & Menu</span>
-        <span>Route Planner</span>
-        <span>Booking</span>
-        <span>Payments</span>
-        <span>AI Estimates</span>
-        <span>Customer Portal</span>
-        <span class="widget-soon">AI Agent</span>
-      </div>
-      <div class="featured-desc">The Data Miner pulls from 35+ sources — census, mortgage, competitor & labor data — scores signals against your industry, and generates AI campaign briefs. What agencies charge $2K–$5K for, from a widget.</div>
-      <a href="https://widgetfied.com" target="_blank" rel="noopener" class="featured-cta">Try Widgetfied Free →</a>
-    </div>
 
-    <!-- 3-COLUMN LINKS -->
-    <div class="columns">
+      <dl class="stats">
+        <div class="stat"><dt>Downloads</dt><dd>3000+</dd></div>
+        <div class="stat"><dt>Widgets</dt><dd>8</dd></div>
+        <div class="stat"><dt>MAU &amp; growing</dt><dd>100+</dd></div>
+      </dl>
 
-      <!-- COLUMN 1: WHAT I BUILD -->
-      <div class="column">
-        <div class="col-label">What I build</div>
+      <p class="featured-desc">
+        Free hosted business sites with a full widget suite. The Data Miner pulls from 35+ sources, scores the signals against your industry, and writes the campaign brief agencies charge thousands for.
+      </p>
+
+      <ul class="featured-chips" aria-label="Widgetfied widgets">
+        <li class="chip-new">Free hosted biz-website</li>
+        <li>Data Miner</li>
+        <li>Cart &amp; Menu</li>
+        <li>Route Planner</li>
+        <li>Booking</li>
+        <li>Payments</li>
+        <li>AI Estimates</li>
+        <li>Customer Portal</li>
+        <li class="chip-soon">AI Agent</li>
+      </ul>
+
+      <a href="https://widgetfied.com" target="_blank" rel="noopener" class="featured-cta cta-widgetfied">Try Widgetfied free →</a>
+    </section>
+
+    <!-- PRODUCTS & AI -->
+    <section class="section" aria-labelledby="build-label">
+      <h2 id="build-label" class="section-label">Products &amp; AI</h2>
+      <div class="link-grid">
 
         <a href="https://handyminer.ai" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-handyminer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8 Q 12 3 21 8" /><path d="M3 8 L4.5 9.5 M21 8 L19.5 9.5" /><path d="M12 5 L12 21" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8 Q 12 3 21 8"/><path d="M3 8 L4.5 9.5 M21 8 L19.5 9.5"/><path d="M12 5 L12 21"/></svg>
           </div>
           <div class="link-text">
-            <div class="link-title">HandyMiner <span class="badge-prelaunch">Pre-Launch</span></div>
-            <div class="link-sub">AI lead mining for trades · Roofers, plumbers, electricians</div>
-          </div>
-        </a>
-
-        <a href="https://widgetfied.com" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-widgetfied">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Widgetfied</div>
-            <div class="link-sub">Data Miner · Service biz widgets</div>
+            <div class="link-title">HandyMiner <span class="badge-prelaunch">Pre-launch</span></div>
+            <div class="link-sub">AI lead mining for roofers, plumbers &amp; electricians</div>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=uL1zU4HvZgc&t=7s" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-npm">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <div class="link-icon icon-youtube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </div>
           <div class="link-text">
-            <div class="link-title">Agentic AI</div>
-            <div class="link-sub">AI Agent that solves teir-1 help desk tickets</div>
+            <div class="link-title">Agentic AI demo</div>
+            <div class="link-sub">An agent solving tier-1 help-desk tickets end to end</div>
           </div>
         </a>
 
         <a href="https://huggingface.co/guymorganb/e5-large-v2-4096-lsg-patched" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-huggingface">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 14.5c-1.38 0-2.5-1.12-2.5-2.5h1.5c0 .55.45 1 1 1s1-.45 1-1H13c0 1.38-1.12 2.5-2.5 2.5zm5 0c-1.38 0-2.5-1.12-2.5-2.5h1.5c0 .55.45 1 1 1s1-.45 1-1H18c0 1.38-1.12 2.5-2.5 2.5zM8.5 10c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm7 0c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 14.5c-1.38 0-2.5-1.12-2.5-2.5h1.5c0 .55.45 1 1 1s1-.45 1-1H13c0 1.38-1.12 2.5-2.5 2.5zm5 0c-1.38 0-2.5-1.12-2.5-2.5h1.5c0 .55.45 1 1 1s1-.45 1-1H18c0 1.38-1.12 2.5-2.5 2.5zM8.5 10c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm7 0c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
           </div>
           <div class="link-text">
-            <div class="link-title">Hugging Face</div>
-            <div class="link-sub">LSG model · 4096 tokens</div>
-          </div>
-        </a>
-      </div>
-
-      <!-- COLUMN 2: FOLLOW ME (center — tallest) -->
-      <div class="column">
-        <div class="col-label">Follow me</div>
-
-        <a href="https://www.tiktok.com/@grit_by_grit" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-tiktok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.11v-3.5a6.37 6.37 0 00-.82-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">TikTok</div>
-            <div class="link-sub">Running clips · Build updates</div>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/grit_by_grit" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Instagram</div>
-            <div class="link-sub">Runs · Reels · Strava recaps</div>
-          </div>
-        </a>
-
-        <a href="https://www.youtube.com/@widgetfied" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-youtube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">YouTube</div>
-            <div class="link-sub">Widgetfied demos · Tutorials</div>
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/morgbeals/" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-linkedin">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">LinkedIn</div>
-            <div class="link-sub">Professional profile</div>
-          </div>
-        </a>
-
-        <a href="https://medium.com/@guyycodes" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-medium">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Medium</div>
-            <div class="link-sub">Articles · Technical writing</div>
-          </div>
-        </a>
-
-        <a href="https://www.strava.com/athletes/71290764" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-strava">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Strava</div>
-            <div class="link-sub">Run logs · Activity feed</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/grit_by_grit" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-x">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">X (Twitter)</div>
-            <div class="link-sub">@grit_by_grit</div>
-          </div>
-        </a>
-
-        <a href="https://www.reddit.com/user/One_Pirate_4022" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-reddit">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Reddit</div>
-            <div class="link-sub">u/One_Pirate_4022</div>
+            <div class="link-title">e5-large-v2 LSG</div>
+            <div class="link-sub">Embedding model patched to 4096-token context</div>
           </div>
         </a>
 
       </div>
+    </section>
 
-      <!-- COLUMN 3: WEB DEV TEMPLATES -->
-      <div class="column">
-        <div class="col-label">Web Dev Templates</div>
+    <!-- OPEN SOURCE -->
+    <section class="section" aria-labelledby="oss-label">
+      <h2 id="oss-label" class="section-label">Open source</h2>
+      <div class="link-grid">
+
+        <a href="https://github.com/guyycodes/Reactive_Browser_Agent" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-github"><svg aria-hidden="true"><use href="#i-github"/></svg></div>
+          <div class="link-text">
+            <div class="link-title">Reactive Browser Agent</div>
+            <div class="link-sub">ReAct + RAG + Playwright MCP · human in the loop</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/guyycodes/Azure_Events_Hub" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-github"><svg aria-hidden="true"><use href="#i-github"/></svg></div>
+          <div class="link-text">
+            <div class="link-title">Azure Events Hub</div>
+            <div class="link-sub">Event-driven pipeline · Functions + SQL</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/guyycodes/Kubernetes_from_scratch" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-github"><svg aria-hidden="true"><use href="#i-github"/></svg></div>
+          <div class="link-text">
+            <div class="link-title">Kubernetes from Scratch</div>
+            <div class="link-sub">Bootstrapping a cluster the hard way</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/guyycodes/ada-drill-app" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-github"><svg aria-hidden="true"><use href="#i-github"/></svg></div>
+          <div class="link-text">
+            <div class="link-title">Ada Drill App</div>
+            <div class="link-sub">Interactive Ada syntax practice game</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/guyycodes/mydns" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-github"><svg aria-hidden="true"><use href="#i-github"/></svg></div>
+          <div class="link-text">
+            <div class="link-title">MyDNS</div>
+            <div class="link-sub">C++ DNS client · RFC 1035 · raw UDP</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CLIENT SITES — live LevelUp builds -->
+    <section class="section" aria-labelledby="clients-label">
+      <h2 id="clients-label" class="section-label">Client sites · live</h2>
+      <div class="link-grid">
+
+        <a href="https://rocionuncio.com" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-levelup">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Rocio Nuncio <span class="badge-client">Client</span></div>
+            <div class="link-sub">Creator bio site · one page, EN/ES</div>
+          </div>
+        </a>
+
+        <a href="https://lebra.fashion" target="_blank" rel="noopener" class="link-btn">
+          <div class="link-icon icon-levelup">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <div class="link-text">
+            <div class="link-title">LeBra Lingerie <span class="badge-client">Client</span></div>
+            <div class="link-sub">Bilingual storefront · WhatsApp commerce</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- SITE TEMPLATES — what the engine spins up -->
+    <section class="section" aria-labelledby="templates-label">
+      <h2 id="templates-label" class="section-label">Site templates</h2>
+      <div class="link-grid">
 
         <a href="https://hvac.quantumtechnician.com/" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">ProFlow Mechanical</div>
-            <div class="link-sub">HVAC & Plumbing template</div>
+            <div class="link-sub">HVAC &amp; plumbing template</div>
           </div>
         </a>
 
         <a href="https://massage.quantumtechnician.com/" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Serenity Touch</div>
@@ -303,7 +323,7 @@
 
         <a href="https://cleaning.quantumtechnician.com/" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9 12H2l5.5 4.5L5 22l7-5 7 5-2.5-5.5L22 12h-7L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L9 12H2l5.5 4.5L5 22l7-5 7 5-2.5-5.5L22 12h-7L12 2z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Sparkle Clean Pro</div>
@@ -313,93 +333,35 @@
 
         <a href="https://auto.quantumtechnician.com/" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h2m10 0h2M2 9l2-6h16l2 6"></path><rect x="2" y="9" width="20" height="8" rx="2"></rect><path d="M7 14h.01M17 14h.01"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h2m10 0h2M2 9l2-6h16l2 6"/><rect x="2" y="9" width="20" height="8" rx="2"/><path d="M7 14h.01M17 14h.01"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Precision Auto Care</div>
-            <div class="link-sub">Auto detailing & PDR template</div>
+            <div class="link-sub">Auto detailing &amp; PDR template</div>
           </div>
         </a>
 
         <a href="https://landscape.quantumtechnician.com/" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Evergreen Landscape</div>
             <div class="link-sub">Landscaping services template</div>
           </div>
         </a>
-      </div>
-
-    </div>
-
-    <!-- ENGINEERING PROJECTS -->
-    <div class="section-row">
-      <div class="col-label">Engineering Projects</div>
-      <div class="demo-grid">
-
-        <a href="https://github.com/guyycodes/Reactive_Browser_Agent" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Reactive Browser Agent</div>
-            <div class="link-sub">ReAct + RAG + Playwright MCP · HITL</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/guyycodes/Azure_Events_Hub" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Azure Events Hub</div>
-            <div class="link-sub">Event-driven pipeline · Functions + SQL</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/guyycodes/Kubernetes_from_scratch" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Kubernetes from Scratch</div>
-            <div class="link-sub">K8s cluster bootstrap guide</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/guyycodes/ada-drill-app" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Ada Drill App</div>
-            <div class="link-sub">Interactive Ada syntax practice game</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/guyycodes/mydns" target="_blank" rel="noopener" class="link-btn">
-          <div class="link-icon icon-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">MyDNS</div>
-            <div class="link-sub">C++ DNS client · RFC 1035 · Raw UDP</div>
-          </div>
-        </a>
 
       </div>
-    </div>
+    </section>
 
-    <!-- WIDGETFIED BIZ DEMOS -->
-    <div class="section-row">
-      <div class="col-label">Widgetfied Hosted Demos</div>
-      <div class="demo-grid">
+    <!-- WIDGETFIED HOSTED DEMOS -->
+    <section class="section" aria-labelledby="demos-label">
+      <h2 id="demos-label" class="section-label">Widgetfied hosted demos</h2>
+      <div class="link-grid">
 
         <a href="https://widgetfied.com/biz/pristine-clean-co" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-wf-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9 12H2l5.5 4.5L5 22l7-5 7 5-2.5-5.5L22 12h-7L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L9 12H2l5.5 4.5L5 22l7-5 7 5-2.5-5.5L22 12h-7L12 2z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Pristine Clean Co</div>
@@ -409,53 +371,64 @@
 
         <a href="https://widgetfied.com/biz/austo-cosmetics" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-wf-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Austo Cosmetics</div>
-            <div class="link-sub">Beauty & cosmetics demo</div>
+            <div class="link-sub">Beauty &amp; cosmetics demo</div>
           </div>
         </a>
 
         <a href="https://widgetfied.com/biz/apex-performance" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-wf-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Apex Performance</div>
-            <div class="link-sub">Fitness & performance demo</div>
+            <div class="link-sub">Fitness &amp; performance demo</div>
           </div>
         </a>
 
         <a href="https://widgetfied.com/biz/the-barbershop" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-wf-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">The Barbershop</div>
-            <div class="link-sub">Barber & grooming demo</div>
+            <div class="link-sub">Barber &amp; grooming demo</div>
           </div>
         </a>
 
         <a href="https://widgetfied.com/biz/serenity-massage" target="_blank" rel="noopener" class="link-btn">
           <div class="link-icon icon-wf-demo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <div class="link-text">
             <div class="link-title">Serenity Massage</div>
-            <div class="link-sub">Massage & wellness demo</div>
+            <div class="link-sub">Massage &amp; wellness demo</div>
           </div>
         </a>
 
       </div>
-    </div>
+    </section>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      <div class="footer-sub">Business Opts → Engineer → Builder</div>
-    </div>
+    <!-- CLOSING CTA — the last thing on the page is the one action that matters -->
+    <section class="closing" aria-labelledby="closing-heading">
+      <h2 id="closing-heading">Building something?</h2>
+      <p>Free scoping call. Fixed written quote. Live in weeks.</p>
+      <a href="https://levelupco.com/contact/" target="_blank" rel="noopener" class="featured-cta cta-levelup">Start a project →</a>
+    </section>
 
-  </div>
+    <footer class="footer">
+      <div class="footer-sub">Founder → Software Architect → Computer Scientist</div>
+    </footer>
+
+  </main>
+
+  <!-- Shared icon definitions (referenced via <use>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></symbol>
+  </svg>
 
 </body>
 </html>
