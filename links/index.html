@@ -136,7 +136,17 @@
         <li>You own it</li>
       </ul>
 
-      <a href="https://levelupco.com/contact/" target="_blank" rel="noopener" class="featured-cta cta-levelup">Claim your free creator site →</a>
+      <!--
+        Creator-site claim link. Param contract read by levelupco.com/site-engine/:
+          src   = where the click came from (this page)
+          ref   = the referring handle, i.e. the social profile that shared the code
+          code  = the claim code shown on the @grit_by_grit social profiles; the
+                  engine must require it (plus the creator's own handle, entered
+                  on the page) before it spins up a free site, so bots cannot
+                  mint sites from the bare URL. Rotate the value here when the
+                  code on the social profiles changes.
+      -->
+      <a href="https://levelupco.com/site-engine/?src=links&amp;ref=grit_by_grit&amp;code=GRITBYGRIT" target="_blank" rel="noopener" class="featured-cta cta-levelup">Claim your free creator site →</a>
     </section>
 
     <!-- FEATURED — WIDGETFIED (secondary; its own stats sit with it) -->
