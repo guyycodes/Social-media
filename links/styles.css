@@ -720,3 +720,46 @@ a { color: inherit; }
   }
   .orb { display: none; }
 }
+
+/* ========== CLAIM FORM (LevelUp card) ========== */
+.claim-form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 8px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.claim-input {
+  flex: 1 1 180px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+}
+
+.claim-input::placeholder { color: var(--subtle); }
+
+.claim-input:focus {
+  outline: none;
+  border-color: var(--lu-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.claim-form .featured-cta {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .claim-form { flex-direction: column; }
+  .claim-form .featured-cta { width: 100%; }
+}
